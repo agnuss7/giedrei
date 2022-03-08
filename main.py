@@ -1,11 +1,13 @@
+# -*- coding: utf-8 -*-
 from  tkinter import ttk
 from tkinter import *
 import sqlite3 as sq
 
 ws  = Tk()
-ws.title('Veterinarijos zurnalas')
+ws.title('Veterinarijos žurnalas')
 ws.geometry('700x700')
 ws['bg'] = '#AC99F2'
+ws.option_add('*Font', '25')
 
 con = sq.connect('test.db')
 c = con.cursor()
@@ -20,14 +22,16 @@ game_scroll.pack(side= BOTTOM,fill=X)
 game_scroll1 = Scrollbar(game_frame)
 game_scroll1.pack(side=RIGHT, fill=Y)
 
-
 zurnalas = ttk.Treeview(game_frame,xscrollcommand=game_scroll.set, yscrollcommand =game_scroll1.set)
-
 
 zurnalas.pack(side=LEFT, fill=BOTH)
 
 game_scroll.config(command=zurnalas.xview)
 game_scroll1.config(command=zurnalas.yview)
+
+style = ttk.Style()
+style.configure("Treeview.Heading", font=(None, 16))
+style.configure("Treeview", font=(None, 16),rowheight=30)
 
 #get fields
 
@@ -42,35 +46,35 @@ zurnalas['columns'] = ('reg_data', 'vardas','pavarde','adresas','rusis','lytis',
 # format our column
 zurnalas.column("#0", width=0,  stretch=YES)
 zurnalas.column("reg_data",anchor=CENTER, width=180)
-zurnalas.column("vardas",anchor=CENTER,width=110)
+zurnalas.column("vardas",anchor=CENTER,width=180)
 zurnalas.column("pavarde",anchor=CENTER, width=180)
-zurnalas.column("adresas",anchor=CENTER,width=110)
+zurnalas.column("adresas",anchor=CENTER,width=180)
 zurnalas.column("rusis",anchor=CENTER, width=180)
-zurnalas.column("lytis",anchor=CENTER,width=110)
+zurnalas.column("lytis",anchor=CENTER,width=180)
 zurnalas.column("amzius",anchor=CENTER, width=180)
-zurnalas.column("zenklinimo_nr",anchor=CENTER,width=110)
+zurnalas.column("zenklinimo_nr",anchor=CENTER,width=180)
 zurnalas.column("pastebejimo_data",anchor=CENTER, width=180)
-zurnalas.column("vaistai",anchor=CENTER,width=110)
+zurnalas.column("vaistai",anchor=CENTER,width=180)
 zurnalas.column("bukle",anchor=CENTER, width=180)
-zurnalas.column("diagnoze",anchor=CENTER,width=110)
+zurnalas.column("diagnoze",anchor=CENTER,width=180)
 zurnalas.column("paslaugos",anchor=CENTER, width=180)
-zurnalas.column("baigtis",anchor=CENTER,width=110)
+zurnalas.column("baigtis",anchor=CENTER,width=180)
 zurnalas.column("tyrimai",anchor=CENTER, width=180)
 
 #Create Headings 
-zurnalas.heading("#0",text="wcfwef",anchor=CENTER)
+zurnalas.heading("#0",text="",anchor=CENTER)
 zurnalas.heading("reg_data",text="Registravimo data",anchor=CENTER)
 zurnalas.heading("vardas",text="Laikytojo vardas",anchor=CENTER)
-zurnalas.heading("pavarde",text="Laikytojo pavarde",anchor=CENTER)
+zurnalas.heading("pavarde",text="Laikytojo pavardė",anchor=CENTER)
 zurnalas.heading("adresas",text="Adresas",anchor=CENTER)
-zurnalas.heading("rusis",text="Gyvuno rusis",anchor=CENTER)
-zurnalas.heading("lytis",text="Gyvuno lytis",anchor=CENTER)
-zurnalas.heading("amzius",text="Gyvuno amzius metais",anchor=CENTER)
-zurnalas.heading("zenklinimo_nr",text="Gyvuno zenklinimo kodas",anchor=CENTER)
-zurnalas.heading("pastebejimo_data",text="Ligos pastebejimo data",anchor=CENTER)
+zurnalas.heading("rusis",text="Gyvūno rūšis",anchor=CENTER)
+zurnalas.heading("lytis",text="Gyvūno lytis",anchor=CENTER)
+zurnalas.heading("amzius",text="Gyvūno amžius metais",anchor=CENTER)
+zurnalas.heading("zenklinimo_nr",text="Gyvūno ženklinimo kodas",anchor=CENTER)
+zurnalas.heading("pastebejimo_data",text="Ligos pastebėjimo data",anchor=CENTER)
 zurnalas.heading("vaistai",text="Skirti vaistai",anchor=CENTER)
-zurnalas.heading("bukle",text="Gyvuno bukle",anchor=CENTER)
-zurnalas.heading("diagnoze",text="Ligos diagnoze",anchor=CENTER)
+zurnalas.heading("bukle",text="Gyvūno bukle",anchor=CENTER)
+zurnalas.heading("diagnoze",text="Ligos diagnozė",anchor=CENTER)
 zurnalas.heading("paslaugos",text="Suteiktos veterinarijos paslaugos",anchor=CENTER)
 zurnalas.heading("baigtis",text="Ligos baigtis",anchor=CENTER)
 zurnalas.heading("tyrimai",text="Atlikti tyrimai",anchor=CENTER)
@@ -78,7 +82,7 @@ zurnalas.heading("tyrimai",text="Atlikti tyrimai",anchor=CENTER)
 #add data 
 for t in data:
 	zurnalas.insert(parent='',index='end',iid=t[0],text='',
-	values=(t[1],t[2],t[3],t[4],t[5],'Patinas' if t[6] else 'Patele',t[7],t[8],t[9],t[10],t[11],t[12],t[13],t[14],t[15]))
+	values=(t[1],t[2],t[3],t[4],t[5],'Patinas' if t[6] else 'Patelė',t[7],t[8],t[9],t[10],t[11],t[12],t[13],t[14],t[15]))
 zurnalas.pack()
 
 frame = Frame(ws)
