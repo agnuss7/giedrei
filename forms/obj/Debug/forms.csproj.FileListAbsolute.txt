@@ -20,3 +20,7 @@ C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\bin\Debug\EntityFramework.Sq
 C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\bin\Debug\System.Data.SQLite.xml
 C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\obj\Debug\forms.csproj.CopyComplete
 C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\obj\Debug\forms.Zurnalas_entry.resources
+C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\obj\Debug\forms.laikytojas_select.resources
+C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\obj\Debug\forms.create_new_laikytojas.resources
+C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\obj\Debug\forms.augintinis_select.resources
+C:\Users\Agne\Desktop\mokslai\giedrei\giedrei\forms\obj\Debug\forms.create_new_augintinis.resources

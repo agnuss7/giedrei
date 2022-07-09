@@ -14,7 +14,7 @@ namespace forms
     public partial class Zurnalas : Form
     {
         public string[] database_fields = { "reg_data", "vardas", "pavarde", "adresas", "rusis", "lytis", "amzius", "zenklinimo_nr", "pastebejimo_data", "vaistai", "bukle", "diagnoze", "paslaugos", "baigtis", "tyrimai"};
-        public string[] list_fields = { "Registravimo data", "Savininko vardas", "Pavarde", "Adresas", "Gyvūno rūšis", "Lytis", "Amžius (metais)", "Ženklinimo numeris", "Ligos pastebėjimo data", "Skirti vaistai", "Būklė", "Diagnozė", "Skirtos paslaugos", "Ligos baigtis", "Atlikti tyrimai" };
+        public string[] list_fields = { "Registravimo data", "Savininko vardas", "Pavardė", "Adresas", "Gyvūno rūšis", "Lytis", "Amžius (metais)", "Ženklinimo numeris", "Ligos pastebėjimo data", "Skirti vaistai", "Būklė", "Diagnozė", "Skirtos paslaugos", "Ligos baigtis", "Atlikti tyrimai" };
         public Zurnalas()
         {
             InitializeComponent();
@@ -29,9 +29,6 @@ namespace forms
             LoadDataFromDB();
         }
         
-
-        
-
         private void zurnalas_list_SelectedIndexChanged(object sender, EventArgs e)
         {
           //  if (zurnalas_list.SelectedItems.Count > 0)

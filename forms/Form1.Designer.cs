@@ -63,10 +63,10 @@
             listViewGroup2});
             this.zurnalas_list.HideSelection = false;
             this.zurnalas_list.Location = new System.Drawing.Point(4, 23);
-            this.zurnalas_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zurnalas_list.Margin = new System.Windows.Forms.Padding(4);
             this.zurnalas_list.MultiSelect = false;
             this.zurnalas_list.Name = "zurnalas_list";
-            this.zurnalas_list.Size = new System.Drawing.Size(1281, 388);
+            this.zurnalas_list.Size = new System.Drawing.Size(1125, 367);
             this.zurnalas_list.TabIndex = 0;
             this.zurnalas_list.UseCompatibleStateImageBehavior = false;
             this.zurnalas_list.View = System.Windows.Forms.View.Details;
@@ -92,11 +92,11 @@
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(70, 20);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1308, 733);
+            this.tabControl1.Size = new System.Drawing.Size(1149, 604);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -106,11 +106,12 @@
             this.tabPage1.Controls.Add(this.Edit_button);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1300, 705);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1141, 576);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Žurnalas";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -118,7 +119,7 @@
             // zurnalas_new_button
             // 
             this.zurnalas_new_button.Location = new System.Drawing.Point(481, 503);
-            this.zurnalas_new_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zurnalas_new_button.Margin = new System.Windows.Forms.Padding(4);
             this.zurnalas_new_button.Name = "zurnalas_new_button";
             this.zurnalas_new_button.Size = new System.Drawing.Size(172, 49);
             this.zurnalas_new_button.TabIndex = 6;
@@ -129,7 +130,7 @@
             // reload_button
             // 
             this.reload_button.Location = new System.Drawing.Point(231, 503);
-            this.reload_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reload_button.Margin = new System.Windows.Forms.Padding(4);
             this.reload_button.Name = "reload_button";
             this.reload_button.Size = new System.Drawing.Size(152, 49);
             this.reload_button.TabIndex = 5;
@@ -140,7 +141,7 @@
             // Edit_button
             // 
             this.Edit_button.Location = new System.Drawing.Point(13, 503);
-            this.Edit_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Edit_button.Margin = new System.Windows.Forms.Padding(4);
             this.Edit_button.Name = "Edit_button";
             this.Edit_button.Size = new System.Drawing.Size(134, 51);
             this.Edit_button.TabIndex = 4;
@@ -152,11 +153,11 @@
             // 
             this.groupBox2.Controls.Add(this.zurnalas_list);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(4, 77);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Location = new System.Drawing.Point(4, 101);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1290, 416);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1133, 394);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Pagrindinis ";
@@ -166,10 +167,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(1290, 73);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1133, 97);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -178,19 +179,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(4, 49);
+            this.label1.Location = new System.Drawing.Point(4, 73);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 15);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(1300, 705);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vaistų siuntos";
@@ -200,11 +201,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1308, 733);
+            this.ClientSize = new System.Drawing.Size(1149, 604);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.l);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Zurnalas";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
