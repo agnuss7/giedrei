@@ -15,7 +15,50 @@ namespace forms
             SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
             m_dbConnection.Open();
 
+
             string sql = "update " + destDB + " set " + updateIDname + "=" + updateID + " where " + whereIDname + "=" + whereID;
+            using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
+            {
+                using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
+                {
+                    sqlcmd.ExecuteNonQuery();
+                }
+
+            }
+            m_dbConnection.Close();
+        }
+        public static void update_fields_to_database(string destDB, string where, string[] updateFields, string[] updateValues)
+        {
+            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
+            m_dbConnection.Open();
+            string updates = "";
+            for (int i=0;i<updateFields.Length;i++)
+            {
+                updates += updateFields[i] + "=" + validation.TransformedText(updateValues[i]) + ",";
+            }
+            updates = updates.Remove(updates.Length - 1, 1);
+            string sql = "update " + destDB + " set " + updates + " where " + where;
+            using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
+            {
+                using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
+                {
+                    sqlcmd.ExecuteNonQuery();
+                }
+
+            }
+            m_dbConnection.Close();
+        }
+        public static void update_fields_to_database_strings(string destDB, string where, string[] updateFields, string[] updateValues)
+        {
+            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
+            m_dbConnection.Open();
+            string updates = "";
+            for (int i = 0; i < updateFields.Length; i++)
+            {
+                updates += updateFields[i] + "='" + validation.TransformedText(updateValues[i]) + "',";
+            }
+            updates = updates.Remove(updates.Length - 1, 1);
+            string sql = "update " + destDB + " set " + updates + " where " + where;
             using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
             {
                 using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
@@ -44,7 +87,21 @@ namespace forms
             }
             values += ")";
             string sql = "insert into " + databaseName + fieldsNames+" values "+values;
-            MessageBox.Show(sql);
+            using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
+            {
+                using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
+                {
+                    sqlcmd.ExecuteNonQuery();
+                }
+
+            }
+            m_dbConnection.Close();
+        }
+        public static void delete_from_database(string tableName, string where)
+        {
+            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
+            m_dbConnection.Open();
+            string sql = "delete from " + tableName + " where " + where;
             using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
             {
                 using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
@@ -96,14 +153,14 @@ namespace forms
             SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
             m_dbConnection.Open();
             string ret = "";
-            string sql = "select 1 from " + table + " where " + where;
+            string sql = "select count(*) from " + table + " where " + where;
             using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
             {
                 SQLiteCommand sda = new SQLiteCommand(sql, conn);
                 ret = sda.ExecuteScalar().ToString();
             }
             m_dbConnection.Close();
-            if (ret != "1")
+            if (ret != "0")
             {
                 return true;
             }

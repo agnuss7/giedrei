@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using System.Data;
 using System.Data.SQLite;
 namespace forms
 {
@@ -28,7 +27,7 @@ namespace forms
             string sql = "select * from gyvunas";
             if (where != "")
             {
-                sql += " " + where;
+                sql += " where " + where;
             }
             SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
             m_dbConnection.Open();
@@ -48,7 +47,14 @@ namespace forms
                     {
                         if (i > 0)
                         {
-                            lvi.SubItems.Add(row[database_fields[i]].ToString());
+                            if (database_fields[i] == "lytis")
+                            {
+                                lvi.SubItems.Add(((bool)row[database_fields[i]]) ? "Patinas" : "Patelė");
+                            }
+                            else
+                            {
+                                lvi.SubItems.Add(row[database_fields[i]].ToString());
+                            }
                         }
                         else
                         {

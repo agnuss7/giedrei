@@ -73,6 +73,8 @@
             this.e_reg_data = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.e_tyrimas_remove = new System.Windows.Forms.Button();
+            this.e_tyrimas_add = new System.Windows.Forms.Button();
             this.e_tyrimai_select = new System.Windows.Forms.ComboBox();
             this.e_tyrimai = new System.Windows.Forms.ListView();
             this.tyrimas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -80,14 +82,14 @@
             this.antraste = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tyr_kiekis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.e_remove_vaistai = new System.Windows.Forms.Button();
+            this.e_add_vaistai = new System.Windows.Forms.Button();
             this.e_vaistai = new System.Windows.Forms.ListView();
             this.pavadinimas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.matas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.galiojimo_data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.kiekis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.serija = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.e_tyrimas_add = new System.Windows.Forms.Button();
-            this.e_tyrimas_remove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -509,6 +511,7 @@
             this.e_baigtis.Name = "e_baigtis";
             this.e_baigtis.Size = new System.Drawing.Size(472, 26);
             this.e_baigtis.TabIndex = 5;
+            this.e_baigtis.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_paslaugos
             // 
@@ -517,6 +520,7 @@
             this.e_paslaugos.Name = "e_paslaugos";
             this.e_paslaugos.Size = new System.Drawing.Size(472, 26);
             this.e_paslaugos.TabIndex = 4;
+            this.e_paslaugos.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_diagnoze
             // 
@@ -525,6 +529,7 @@
             this.e_diagnoze.Name = "e_diagnoze";
             this.e_diagnoze.Size = new System.Drawing.Size(472, 26);
             this.e_diagnoze.TabIndex = 3;
+            this.e_diagnoze.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_bukle
             // 
@@ -534,6 +539,7 @@
             this.e_bukle.Name = "e_bukle";
             this.e_bukle.Size = new System.Drawing.Size(472, 96);
             this.e_bukle.TabIndex = 2;
+            this.e_bukle.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_simp_data
             // 
@@ -544,7 +550,8 @@
             this.e_simp_data.Name = "e_simp_data";
             this.e_simp_data.Size = new System.Drawing.Size(244, 26);
             this.e_simp_data.TabIndex = 1;
-            this.e_simp_data.Value = new System.DateTime(2022, 4, 25, 0, 0, 0, 0);
+            this.e_simp_data.Value = new System.DateTime(2022, 7, 17, 0, 0, 0, 0);
+            this.e_simp_data.ValueChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_reg_data
             // 
@@ -555,7 +562,8 @@
             this.e_reg_data.Name = "e_reg_data";
             this.e_reg_data.Size = new System.Drawing.Size(244, 26);
             this.e_reg_data.TabIndex = 0;
-            this.e_reg_data.Value = new System.DateTime(2022, 4, 25, 0, 0, 0, 0);
+            this.e_reg_data.Value = new System.DateTime(2022, 7, 17, 0, 0, 0, 0);
+            this.e_reg_data.ValueChanged += new System.EventHandler(this.change_saved_status);
             // 
             // panel2
             // 
@@ -584,6 +592,26 @@
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Atlikti tyrimai";
+            // 
+            // e_tyrimas_remove
+            // 
+            this.e_tyrimas_remove.Location = new System.Drawing.Point(559, 42);
+            this.e_tyrimas_remove.Name = "e_tyrimas_remove";
+            this.e_tyrimas_remove.Size = new System.Drawing.Size(74, 28);
+            this.e_tyrimas_remove.TabIndex = 3;
+            this.e_tyrimas_remove.Text = "Atimti";
+            this.e_tyrimas_remove.UseVisualStyleBackColor = true;
+            this.e_tyrimas_remove.Click += new System.EventHandler(this.e_tyrimas_remove_Click);
+            // 
+            // e_tyrimas_add
+            // 
+            this.e_tyrimas_add.Location = new System.Drawing.Point(478, 42);
+            this.e_tyrimas_add.Name = "e_tyrimas_add";
+            this.e_tyrimas_add.Size = new System.Drawing.Size(75, 28);
+            this.e_tyrimas_add.TabIndex = 2;
+            this.e_tyrimas_add.Text = "Pridėti";
+            this.e_tyrimas_add.UseVisualStyleBackColor = true;
+            this.e_tyrimas_add.Click += new System.EventHandler(this.e_tyrimas_add_Click);
             // 
             // e_tyrimai_select
             // 
@@ -632,6 +660,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.e_remove_vaistai);
+            this.groupBox3.Controls.Add(this.e_add_vaistai);
             this.groupBox3.Controls.Add(this.e_vaistai);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
@@ -642,6 +672,26 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Skirti vaistai";
+            // 
+            // e_remove_vaistai
+            // 
+            this.e_remove_vaistai.Location = new System.Drawing.Point(360, 172);
+            this.e_remove_vaistai.Name = "e_remove_vaistai";
+            this.e_remove_vaistai.Size = new System.Drawing.Size(256, 30);
+            this.e_remove_vaistai.TabIndex = 2;
+            this.e_remove_vaistai.Text = "Atšaukti pažymėto vaisto skyrimą";
+            this.e_remove_vaistai.UseVisualStyleBackColor = true;
+            this.e_remove_vaistai.Click += new System.EventHandler(this.e_remove_vaistai_Click);
+            // 
+            // e_add_vaistai
+            // 
+            this.e_add_vaistai.Location = new System.Drawing.Point(200, 172);
+            this.e_add_vaistai.Name = "e_add_vaistai";
+            this.e_add_vaistai.Size = new System.Drawing.Size(120, 30);
+            this.e_add_vaistai.TabIndex = 1;
+            this.e_add_vaistai.Text = "Skirti vaistus...";
+            this.e_add_vaistai.UseVisualStyleBackColor = true;
+            this.e_add_vaistai.Click += new System.EventHandler(this.e_add_vaistai_Click);
             // 
             // e_vaistai
             // 
@@ -685,25 +735,6 @@
             this.serija.Text = "Serijos numeris";
             this.serija.Width = 155;
             // 
-            // e_tyrimas_add
-            // 
-            this.e_tyrimas_add.Location = new System.Drawing.Point(478, 42);
-            this.e_tyrimas_add.Name = "e_tyrimas_add";
-            this.e_tyrimas_add.Size = new System.Drawing.Size(75, 28);
-            this.e_tyrimas_add.TabIndex = 2;
-            this.e_tyrimas_add.Text = "Pridėti";
-            this.e_tyrimas_add.UseVisualStyleBackColor = true;
-            this.e_tyrimas_add.Click += new System.EventHandler(this.e_tyrimas_add_Click);
-            // 
-            // e_tyrimas_remove
-            // 
-            this.e_tyrimas_remove.Location = new System.Drawing.Point(559, 42);
-            this.e_tyrimas_remove.Name = "e_tyrimas_remove";
-            this.e_tyrimas_remove.Size = new System.Drawing.Size(74, 28);
-            this.e_tyrimas_remove.TabIndex = 3;
-            this.e_tyrimas_remove.Text = "Atimti";
-            this.e_tyrimas_remove.UseVisualStyleBackColor = true;
-            // 
             // Zurnalas_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -715,6 +746,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Zurnalas_entry";
             this.Text = "Zurnalas_entry";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.e_on_close);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.reload_main_f_table);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -791,5 +824,7 @@
         private System.Windows.Forms.ComboBox e_tyrimai_select;
         private System.Windows.Forms.Button e_tyrimas_remove;
         private System.Windows.Forms.Button e_tyrimas_add;
+        private System.Windows.Forms.Button e_remove_vaistai;
+        private System.Windows.Forms.Button e_add_vaistai;
     }
 }

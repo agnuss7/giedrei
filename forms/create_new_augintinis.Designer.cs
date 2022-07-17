@@ -144,7 +144,7 @@
             // 
             // new_gyv_lytis
             // 
-            this.new_gyv_lytis.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.new_gyv_lytis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.new_gyv_lytis.Items.AddRange(new object[] {
             "Patinas",
             "Patelė"});

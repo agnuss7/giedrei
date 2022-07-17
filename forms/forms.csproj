@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="add_vaistai_to_entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="add_vaistai_to_entry.Designer.cs">
+      <DependentUpon>add_vaistai_to_entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="augintinis_select.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="search.cs" />
+    <Compile Include="vaistai_select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vaistai_select.Designer.cs">
+      <DependentUpon>vaistai_select.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vaistu_siunta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vaistu_siunta.Designer.cs">
+      <DependentUpon>vaistu_siunta.cs</DependentUpon>
+    </Compile>
     <Compile Include="validation.cs" />
     <Compile Include="Zurnalas_entry.cs">
       <SubType>Form</SubType>
@@ -107,6 +125,9 @@
     <Compile Include="Zurnalas_entry.Designer.cs">
       <DependentUpon>Zurnalas_entry.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="add_vaistai_to_entry.resx">
+      <DependentUpon>add_vaistai_to_entry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="augintinis_select.resx">
       <DependentUpon>augintinis_select.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +152,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="vaistai_select.resx">
+      <DependentUpon>vaistai_select.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vaistu_siunta.resx">
+      <DependentUpon>vaistu_siunta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Zurnalas_entry.resx">
       <DependentUpon>Zurnalas_entry.cs</DependentUpon>
     </EmbeddedResource>

@@ -17,8 +17,8 @@ namespace forms
       //  public string[] list_fields = { "Registravimo data", "Savininko vardas", "Pavarde", "Adresas", "Gyvūno rūšis", "Lytis", "Amžius (metais)", "Ženklinimo numeris", "Ligos pastebėjimo data", "Skirti vaistai", "Būklė", "Diagnozė", "Skirtos paslaugos", "Ligos baigtis", "Atlikti tyrimai" };
 
         public int id;
-        public int gyv_id;
-        public int klient_id;
+        public int gyv_id=0;
+        public int klient_id=0;
         public bool new_entry = false;
         public bool clicked_save = false;
         delegate void info_updater(DataRow r);
@@ -57,6 +57,7 @@ namespace forms
                 m_dbConnection.Close();
                 update_info_section("select b.id,a.pavadinimas, a.matas, b.galiojimo_data, c.kiekis, b.serija from zurnalas_vaistai c join vaistai_siuntos b on b.id=c.vaistai_id join vaistai a on a.id=b.vaistai_id where c.zurnalas_id=" + this.id.ToString(), new info_updater(vaistai_info_fill));
                 update_info_section("select a.id,a.pavadinimas, a.antraste, a.kodas, b.kiekis from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
+                clicked_save = true;
             }
             else
             {
@@ -188,20 +189,8 @@ namespace forms
 
         private void zur_save_Click(object sender, EventArgs e)
         {
-            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
-            m_dbConnection.Open();
-
-            string sql = "update zurnalas set reg_data='"+ e_reg_data.Value.ToString("yyyy-MM-dd") + "', pastebejimo_data='" + e_simp_data.Value.ToString("yyyy-MM-dd")+ "', bukle='" + e_bukle.Text + "', diagnoze='"+e_diagnoze.Text+"', paslaugos='"+e_paslaugos.Text+"', baigtis='"+e_baigtis.Text+"' where id=" + this.id.ToString();
-            using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
-            {
-                using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
-                {
-                    sqlcmd.ExecuteNonQuery(); 
-                }
-
-            }
-            m_dbConnection.Close();
             clicked_save = true;
+            DBupdate.update_fields_to_database("zurnalas", "id=" + this.id.ToString(), new[] { "reg_data", "pastebejimo_data", "bukle", "diagnoze", "paslaugos", "baigtis" }, new[] { "'"+ e_reg_data.Value.ToString("yyyy-MM-dd")+ "'", "'"+e_simp_data.Value.ToString("yyyy-MM-dd")+ "'", "'" + e_bukle.Text + "'", "'" + e_diagnoze.Text + "'", "'" + e_paslaugos.Text + "'", "'" + e_baigtis.Text + "'" });
         }
 
         private void e_select_savininkas_Click(object sender, EventArgs e)
@@ -226,7 +215,150 @@ namespace forms
                 {
                     if (DBupdate.RowExists("zurnalas_tyrimai","tyrimai_id="+tyr_id+" and zurnalas_id=" + id.ToString()))
                     {
+                        if (DBupdate.RowExists("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString() + " and kiekis is null"))
+                        {
+                            DBupdate.update_fields_to_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString(), new[] { "kiekis" }, new[] { "2" });
+                        } else
+                        {
+                            DBupdate.update_fields_to_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString(), new[] { "kiekis" }, new[] { "kiekis+1" });
+                        }
+                    }
+                    else
+                    {
+                        DBupdate.add_new_to_database("zurnalas_tyrimai","zurnalas_id",id,new[] { "tyrimai_id" },new[] { tyr_id });
+                    }
+                }
+                e_tyrimai.Items.Clear();
+                update_info_section("select a.id,a.pavadinimas, a.antraste, a.kodas, b.kiekis from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
+            }
+        }
 
+        private void e_tyrimas_remove_Click(object sender, EventArgs e)
+        {
+            if (e_tyrimai_select.SelectedItem != null)
+            {
+                string kodas = e_tyrimai_select.SelectedItem.ToString().Remove(e_tyrimai_select.SelectedItem.ToString().IndexOf('_'));
+                string tyr_id = DBupdate.GetValueFrom("tyrimai", "id", "pavadinimas='" + kodas + "'");
+                if (tyr_id != "")
+                {
+                    if (DBupdate.RowExists("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString()))
+                    {
+                        if (DBupdate.RowExists("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString() + " and (kiekis is null or kiekis=1)"))
+                        {
+                            DBupdate.delete_from_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString());
+                        }
+                        else
+                        {
+                            DBupdate.update_fields_to_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString(), new[] { "kiekis" }, new[] { "kiekis-1" });
+                        }
+                    }
+                }
+                e_tyrimai.Items.Clear();
+                update_info_section("select a.id,a.pavadinimas, a.antraste, a.kodas, b.kiekis from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
+            }
+        }
+
+        private void e_add_vaistai_Click(object sender, EventArgs e)
+        {
+            add_vaistai_to_entry deriv = new add_vaistai_to_entry(this.id);
+            deriv.Show();
+        }
+
+        public void update_vaistai()
+        {
+            e_vaistai.Items.Clear();
+            update_info_section("select b.id,a.pavadinimas, a.matas, b.galiojimo_data, c.kiekis, b.serija from zurnalas_vaistai c join vaistai_siuntos b on b.id=c.vaistai_id join vaistai a on a.id=b.vaistai_id where c.zurnalas_id=" + this.id.ToString(), new info_updater(vaistai_info_fill));
+
+        }
+
+        private void e_remove_vaistai_Click(object sender, EventArgs e)
+        {
+            if (e_vaistai.SelectedItems.Count > 0)
+            {
+                DBupdate.quick_id_update_to_database("vaistai_siuntos", "id", e_vaistai.SelectedItems[0].Tag.ToString(), "turimas_kiekis", "turimas_kiekis+" + e_vaistai.SelectedItems[0].SubItems[3].Text);
+                DBupdate.delete_from_database("zurnalas_vaistai", "zurnalas_id=" + this.id.ToString() + " and vaistai_id=" + e_vaistai.SelectedItems[0].Tag.ToString());
+                update_vaistai();
+            }
+        }
+
+        public void e_on_close(Object sender, FormClosingEventArgs e)
+        {
+            if(new_entry && (!clicked_save || klient_id==0 || gyv_id==0))
+            {
+                String laukai = "";
+                if (klient_id == 0)
+                {
+                    laukai += "laikytojo";
+                }
+                if (gyv_id == 0)
+                {
+                    if (laukai.Length > 0)
+                    {
+                        laukai += ", augintinio";
+                    }
+                    else
+                    {
+                        laukai += "augintinio";
+                    }
+                }
+                if (!clicked_save)
+                {
+                    if (laukai.Length > 0)
+                    {
+                        laukai += " ir žurnalo (neišsaugota)";
+                    }
+                    else
+                    {
+                        laukai += "žurnalo (neišsaugota)";
+                    }
+                }
+                laukai += ".";
+                DialogResult res = MessageBox.Show("Yra neįrašytų/neišsaugotų būtinų sekcijų: "+laukai+" Ar norite išeiti neišsaugoję šio įrašo?", "Dėmesio", MessageBoxButtons.YesNo);
+                if ((int)res == 6)
+                {
+                    if (DBupdate.RowExists("zurnalas_vaistai", "zurnalas_id=" + this.id.ToString()))
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show("Dėmesio! Trynimas negalimas, nes buvo skirti vaistai! Atšaukite vaistų skyrimus, kad išvengti neatitikimų.");
+                    }
+                    else
+                    {
+                        DBupdate.delete_from_database("zurnalas", "id=" + this.id.ToString());
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            } else if (!clicked_save)
+            {
+                DialogResult res = MessageBox.Show("Žurnalo sekcija buvo pakeista ir neišsaugota. Ar norite išsaugoti šį įrašą prieš išeidami?", "Dėmesio", MessageBoxButtons.YesNoCancel);
+                if ((int)res == 6)
+                {
+                    DBupdate.update_fields_to_database("zurnalas", "id=" + this.id.ToString(), new[] { "reg_data", "pastebejimo_data", "bukle", "diagnoze", "paslaugos", "baigtis" }, new[] { "'"+e_reg_data.Value.ToString("yyyy-MM-dd")+ "'", "'"+e_simp_data.Value.ToString("yyyy-MM-dd")+ "'", "'"+e_bukle.Text+ "'", "'"+e_diagnoze.Text+ "'", "'"+e_paslaugos.Text+ "'", "'"+e_baigtis.Text+ "'" });
+                }
+                else if ((int)res == 2)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        public void change_saved_status(object sender, EventArgs e)
+        {
+            clicked_save = false;
+        }
+
+        public void reload_main_f_table(object sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f != null)
+                {
+                    if (f.Name == "Zurnalas")
+                    {
+                        ((Zurnalas)f).LoadDataFromDB();
+                        break;
                     }
                 }
             }
