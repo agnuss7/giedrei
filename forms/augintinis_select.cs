@@ -15,14 +15,14 @@ namespace forms
     {
         public int zurnalas_id;
         private int selected_augintinis_id;
-        public augintinis_select(int zurnalas_id, int selected_augintinis_id = -1)
+        public augintinis_select(int zurnalas_id, int selected_augintinis_id = 0)
         {
             this.zurnalas_id = zurnalas_id;
             this.selected_augintinis_id = selected_augintinis_id;
             InitializeComponent();
             LoadFromDB(selected_augintinis_id);
         }
-        public void LoadFromDB(int selected = -1, string where = "")
+        public void LoadFromDB(int selected = 0, string where = "")
         {
             string sql = "select * from gyvunas";
             if (where != "")
@@ -66,7 +66,7 @@ namespace forms
                 this.select_augintinis.EndUpdate();
             }
             m_dbConnection.Close();
-            if (selected > -1 && select_augintinis.Items.Count > 0)
+            if (selected > 0 && select_augintinis.Items.Count > 0)
             {
                 int list_id = 0;
                 foreach (ListViewItem it in select_augintinis.Items)

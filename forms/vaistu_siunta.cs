@@ -67,18 +67,19 @@ namespace forms
 
         private void e_siunta_select_vaistas_button_Click(object sender, EventArgs e)
         {
-
+            vaistai_select deriv = new vaistai_select(id,vaistas_id);
+            deriv.Show();
         }
 
         private void e_siunta_save()
         {
             string[] fields = { "vaistai_id", "gavimo_data","dokumentas","serija","galiojimo_data","turimas_kiekis","gautas_kiekis"};
-            string[] values = { vaistas_id.ToString(), e_siunta_gavimo_data.Value.ToString("yyyy-MM-dd"),e_siunta_dokumentas.Text,e_siunta_serija.Text, e_siunta_galiojimo_data.Value.ToString("yyyy-MM-dd"),e_siunta_turimas_kiekis.Text,"" };
+            string[] values = { vaistas_id.ToString(), e_siunta_gavimo_data.Value.ToString("yyyy-MM-dd"),e_siunta_dokumentas.Text,e_siunta_serija.Text, e_siunta_galiojimo_data.Value.ToString("yyyy-MM-dd"),e_siunta_turimas_kiekis.Text.Replace(',','.'),"" };
             if (vaistas_id > 0)
             {
                 if (id > 0)
                 {
-                    values[6] = e_siunta_gautas_kiekis.Text;
+                    values[6] = e_siunta_gautas_kiekis.Text.Replace(',','.');
                     DBupdate.update_fields_to_database_strings("vaistai_siuntos", "id=" + id.ToString(), fields, values);
                 }
                 else
@@ -90,6 +91,17 @@ namespace forms
             }
         }
 
+        private void make_likes(object sender, EventArgs e)
+        {
+            e_siunta_turimas_kiekis.Text = e_siunta_gautas_kiekis_sveikas.Value.ToString() + "," + e_siunta_gautas_kiekis_1.Value.ToString() + e_siunta_gautas_kiekis_2.Value.ToString();
+        }
+
+        public void set_vaistas(int vaist_id)
+        {
+            this.vaistas_id = vaist_id;
+            e_siunta_pavadinimas.Text=DBupdate.GetValueFrom("vaistai","pavadinimas","id="+vaistas_id.ToString());
+            e_siunta_matas.Text = DBupdate.GetValueFrom("vaistai", "matas", "id=" + vaistas_id.ToString());
+        }
         private void e_siunta_save_button_Click(object sender, EventArgs e)
         {
             e_siunta_save();

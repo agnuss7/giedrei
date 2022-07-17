@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.e_siunta_pavadinimas = new System.Windows.Forms.Label();
-            this.e_siunta_matas = new System.Windows.Forms.Label();
             this.e_siunta_select_vaistas_button = new System.Windows.Forms.Button();
+            this.e_siunta_matas = new System.Windows.Forms.Label();
+            this.e_siunta_pavadinimas = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.e_siunta_gavimo_data = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.e_siunta_add_sveikas = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.e_siunta_add_button = new System.Windows.Forms.Button();
             this.e_siunta_kiekis_pokytis = new System.Windows.Forms.ComboBox();
+            this.e_siunta_add_button = new System.Windows.Forms.Button();
             this.e_siunta_gautas_kiekis = new System.Windows.Forms.Label();
             this.e_siunta_group = new System.Windows.Forms.GroupBox();
             this.e_siunta_save_button = new System.Windows.Forms.Button();
@@ -84,14 +84,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vaistas";
             // 
-            // label1
+            // e_siunta_select_vaistas_button
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Pavadinimas";
+            this.e_siunta_select_vaistas_button.Location = new System.Drawing.Point(124, 91);
+            this.e_siunta_select_vaistas_button.Name = "e_siunta_select_vaistas_button";
+            this.e_siunta_select_vaistas_button.Size = new System.Drawing.Size(134, 28);
+            this.e_siunta_select_vaistas_button.TabIndex = 1;
+            this.e_siunta_select_vaistas_button.Text = "Pasirinkti vaistą";
+            this.e_siunta_select_vaistas_button.UseVisualStyleBackColor = true;
+            this.e_siunta_select_vaistas_button.Click += new System.EventHandler(this.e_siunta_select_vaistas_button_Click);
+            // 
+            // e_siunta_matas
+            // 
+            this.e_siunta_matas.AutoSize = true;
+            this.e_siunta_matas.Location = new System.Drawing.Point(120, 68);
+            this.e_siunta_matas.Name = "e_siunta_matas";
+            this.e_siunta_matas.Size = new System.Drawing.Size(0, 20);
+            this.e_siunta_matas.TabIndex = 3;
+            // 
+            // e_siunta_pavadinimas
+            // 
+            this.e_siunta_pavadinimas.AutoSize = true;
+            this.e_siunta_pavadinimas.Location = new System.Drawing.Point(120, 35);
+            this.e_siunta_pavadinimas.Name = "e_siunta_pavadinimas";
+            this.e_siunta_pavadinimas.Size = new System.Drawing.Size(0, 20);
+            this.e_siunta_pavadinimas.TabIndex = 2;
             // 
             // label2
             // 
@@ -102,31 +119,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Matas";
             // 
-            // e_siunta_pavadinimas
+            // label1
             // 
-            this.e_siunta_pavadinimas.AutoSize = true;
-            this.e_siunta_pavadinimas.Location = new System.Drawing.Point(120, 35);
-            this.e_siunta_pavadinimas.Name = "e_siunta_pavadinimas";
-            this.e_siunta_pavadinimas.Size = new System.Drawing.Size(0, 20);
-            this.e_siunta_pavadinimas.TabIndex = 2;
-            // 
-            // e_siunta_matas
-            // 
-            this.e_siunta_matas.AutoSize = true;
-            this.e_siunta_matas.Location = new System.Drawing.Point(120, 68);
-            this.e_siunta_matas.Name = "e_siunta_matas";
-            this.e_siunta_matas.Size = new System.Drawing.Size(0, 20);
-            this.e_siunta_matas.TabIndex = 3;
-            // 
-            // e_siunta_select_vaistas_button
-            // 
-            this.e_siunta_select_vaistas_button.Location = new System.Drawing.Point(124, 91);
-            this.e_siunta_select_vaistas_button.Name = "e_siunta_select_vaistas_button";
-            this.e_siunta_select_vaistas_button.Size = new System.Drawing.Size(134, 28);
-            this.e_siunta_select_vaistas_button.TabIndex = 1;
-            this.e_siunta_select_vaistas_button.Text = "Pasirinkti vaistą";
-            this.e_siunta_select_vaistas_button.UseVisualStyleBackColor = true;
-            this.e_siunta_select_vaistas_button.Click += new System.EventHandler(this.e_siunta_select_vaistas_button_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Pavadinimas";
             // 
             // e_siunta_gavimo_data
             // 
@@ -209,6 +209,7 @@
             this.e_siunta_gautas_kiekis_sveikas.Name = "e_siunta_gautas_kiekis_sveikas";
             this.e_siunta_gautas_kiekis_sveikas.Size = new System.Drawing.Size(91, 26);
             this.e_siunta_gautas_kiekis_sveikas.TabIndex = 9;
+            this.e_siunta_gautas_kiekis_sveikas.ValueChanged += new System.EventHandler(this.make_likes);
             // 
             // label7
             // 
@@ -240,6 +241,7 @@
             this.e_siunta_gautas_kiekis_1.ReadOnly = true;
             this.e_siunta_gautas_kiekis_1.Size = new System.Drawing.Size(31, 26);
             this.e_siunta_gautas_kiekis_1.TabIndex = 12;
+            this.e_siunta_gautas_kiekis_1.ValueChanged += new System.EventHandler(this.make_likes);
             // 
             // e_siunta_gautas_kiekis_2
             // 
@@ -253,6 +255,7 @@
             this.e_siunta_gautas_kiekis_2.ReadOnly = true;
             this.e_siunta_gautas_kiekis_2.Size = new System.Drawing.Size(31, 26);
             this.e_siunta_gautas_kiekis_2.TabIndex = 13;
+            this.e_siunta_gautas_kiekis_2.ValueChanged += new System.EventHandler(this.make_likes);
             // 
             // label9
             // 
@@ -333,15 +336,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kiekio pokytis";
             // 
-            // e_siunta_add_button
-            // 
-            this.e_siunta_add_button.Location = new System.Drawing.Point(198, 57);
-            this.e_siunta_add_button.Name = "e_siunta_add_button";
-            this.e_siunta_add_button.Size = new System.Drawing.Size(75, 28);
-            this.e_siunta_add_button.TabIndex = 22;
-            this.e_siunta_add_button.Text = "Vykdyti";
-            this.e_siunta_add_button.UseVisualStyleBackColor = true;
-            // 
             // e_siunta_kiekis_pokytis
             // 
             this.e_siunta_kiekis_pokytis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -354,6 +348,15 @@
             this.e_siunta_kiekis_pokytis.Name = "e_siunta_kiekis_pokytis";
             this.e_siunta_kiekis_pokytis.Size = new System.Drawing.Size(267, 28);
             this.e_siunta_kiekis_pokytis.TabIndex = 22;
+            // 
+            // e_siunta_add_button
+            // 
+            this.e_siunta_add_button.Location = new System.Drawing.Point(198, 57);
+            this.e_siunta_add_button.Name = "e_siunta_add_button";
+            this.e_siunta_add_button.Size = new System.Drawing.Size(75, 28);
+            this.e_siunta_add_button.TabIndex = 22;
+            this.e_siunta_add_button.Text = "Vykdyti";
+            this.e_siunta_add_button.UseVisualStyleBackColor = true;
             // 
             // e_siunta_gautas_kiekis
             // 

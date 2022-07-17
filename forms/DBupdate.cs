@@ -38,6 +38,7 @@ namespace forms
             }
             updates = updates.Remove(updates.Length - 1, 1);
             string sql = "update " + destDB + " set " + updates + " where " + where;
+            MessageBox.Show(sql);
             using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
             {
                 using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))

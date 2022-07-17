@@ -83,7 +83,7 @@ namespace forms
             if (vaistai_to_add.SelectedItems.Count > 0)
             {
                 float kiekis = float.Parse(sveikas_kiekis.Value.ToString() + "." + pirmas_kiekis.Value.ToString() + antras_kiekis.Value.ToString(), CultureInfo.InvariantCulture);
-                float esamas_k = float.Parse(vaistai_to_add.SelectedItems[0].SubItems[4].Text, CultureInfo.InvariantCulture);
+                float esamas_k = float.Parse(vaistai_to_add.SelectedItems[0].SubItems[4].Text);
                 if (kiekis > esamas_k)
                 {
                     MessageBox.Show("Jūsų nurodytas išrašomas kiekis per didelis.");
@@ -92,13 +92,14 @@ namespace forms
                 {
                     if (DBupdate.RowExists("zurnalas_vaistai","zurnalas_id=" + zurnalas_id.ToString() + " and vaistai_id=" + vaistai_to_add.SelectedItems[0].Tag.ToString()))
                     {
-                        DBupdate.update_fields_to_database("zurnalas_vaistai", "zurnalas_id=" + zurnalas_id.ToString() + " and vaistai_id=" + vaistai_to_add.SelectedItems[0].Tag.ToString(), new[] { "kiekis" }, new[] { "kiekis + " + kiekis.ToString() });
+                        DBupdate.update_fields_to_database("zurnalas_vaistai", "zurnalas_id=" + zurnalas_id.ToString() + " and vaistai_id=" + vaistai_to_add.SelectedItems[0].Tag.ToString(), new[] { "kiekis" }, new[] { "kiekis + " + kiekis.ToString().Replace(',', '.') });
                     }
                     else
                     {
-                        DBupdate.add_new_to_database("zurnalas_vaistai", "zurnalas_id", zurnalas_id, new[] { "vaistai_id", "kiekis" }, new[] { vaistai_to_add.SelectedItems[0].Tag.ToString(), kiekis.ToString() });
+                        DBupdate.add_new_to_database("zurnalas_vaistai", "zurnalas_id", zurnalas_id, new[] { "vaistai_id", "kiekis" }, new[] { vaistai_to_add.SelectedItems[0].Tag.ToString(), kiekis.ToString().Replace(',','.') });
                     }
-                    DBupdate.quick_id_update_to_database("vaistai_siuntos", "id", vaistai_to_add.SelectedItems[0].Tag.ToString(), "turimas_kiekis", (esamas_k - kiekis).ToString());
+                    MessageBox.Show((esamas_k - kiekis).ToString());
+                    DBupdate.quick_id_update_to_database("vaistai_siuntos", "id", vaistai_to_add.SelectedItems[0].Tag.ToString(), "turimas_kiekis", "round("+(esamas_k - kiekis).ToString().Replace(',', '.')+",2)");
                     foreach (Form f in Application.OpenForms)
                     {
                         if (f != null)

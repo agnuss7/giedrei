@@ -275,7 +275,7 @@ namespace forms
         {
             if (e_vaistai.SelectedItems.Count > 0)
             {
-                DBupdate.quick_id_update_to_database("vaistai_siuntos", "id", e_vaistai.SelectedItems[0].Tag.ToString(), "turimas_kiekis", "turimas_kiekis+" + e_vaistai.SelectedItems[0].SubItems[3].Text);
+                DBupdate.quick_id_update_to_database("vaistai_siuntos", "id", e_vaistai.SelectedItems[0].Tag.ToString(), "turimas_kiekis", "turimas_kiekis+" + e_vaistai.SelectedItems[0].SubItems[3].Text.Replace(',','.'));
                 DBupdate.delete_from_database("zurnalas_vaistai", "zurnalas_id=" + this.id.ToString() + " and vaistai_id=" + e_vaistai.SelectedItems[0].Tag.ToString());
                 update_vaistai();
             }
