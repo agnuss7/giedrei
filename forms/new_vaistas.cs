@@ -25,7 +25,7 @@ namespace forms
             {
                 int new_id = DBupdate.GenerateId("vaistai", "id");
                 DBupdate.add_new_to_database("vaistai", "id", new_id, new[] { "pavadinimas", "matas" }, new[] { new_vaistas_pavadinimas.Text, new_vaistas_matas.Text });
-                if (siunta_id > 0)
+                if (siunta_id > 0 || siunta_id==-1)
                 {
                     foreach(Form f in Application.OpenForms)
                     {

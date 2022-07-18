@@ -137,6 +137,7 @@
             this.e_siunta_gavimo_data.Size = new System.Drawing.Size(200, 26);
             this.e_siunta_gavimo_data.TabIndex = 1;
             this.e_siunta_gavimo_data.Value = new System.DateTime(2022, 7, 17, 13, 52, 21, 0);
+            this.e_siunta_gavimo_data.ValueChanged += new System.EventHandler(this.set_unsaved);
             // 
             // label3
             // 
@@ -165,6 +166,7 @@
             this.e_siunta_galiojimo_data.Size = new System.Drawing.Size(200, 26);
             this.e_siunta_galiojimo_data.TabIndex = 3;
             this.e_siunta_galiojimo_data.Value = new System.DateTime(2022, 7, 17, 13, 52, 13, 0);
+            this.e_siunta_galiojimo_data.ValueChanged += new System.EventHandler(this.set_unsaved);
             // 
             // label5
             // 
@@ -181,6 +183,7 @@
             this.e_siunta_dokumentas.Name = "e_siunta_dokumentas";
             this.e_siunta_dokumentas.Size = new System.Drawing.Size(200, 26);
             this.e_siunta_dokumentas.TabIndex = 6;
+            this.e_siunta_dokumentas.TextChanged += new System.EventHandler(this.set_unsaved);
             // 
             // e_siunta_serija
             // 
@@ -188,6 +191,7 @@
             this.e_siunta_serija.Name = "e_siunta_serija";
             this.e_siunta_serija.Size = new System.Drawing.Size(200, 26);
             this.e_siunta_serija.TabIndex = 8;
+            this.e_siunta_serija.TextChanged += new System.EventHandler(this.set_unsaved);
             // 
             // label6
             // 
@@ -341,6 +345,7 @@
             this.e_siunta_kiekis_pokytis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.e_siunta_kiekis_pokytis.FormattingEnabled = true;
             this.e_siunta_kiekis_pokytis.Items.AddRange(new object[] {
+            "Atimti (nuo gauto ir turimo kiekio)",
             "Pridėti (prie gauto ir turimo kiekio)",
             "Atimti nuo turimo kiekio",
             "Pridėti prie turimo kiekio"});
@@ -357,6 +362,7 @@
             this.e_siunta_add_button.TabIndex = 22;
             this.e_siunta_add_button.Text = "Vykdyti";
             this.e_siunta_add_button.UseVisualStyleBackColor = true;
+            this.e_siunta_add_button.Click += new System.EventHandler(this.e_siunta_add_button_Click);
             // 
             // e_siunta_gautas_kiekis
             // 
@@ -413,6 +419,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "vaistu_siunta";
             this.Text = "Vaistų siunta";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.before_close);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.reload_main_f_table);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.e_siunta_gautas_kiekis_sveikas)).EndInit();

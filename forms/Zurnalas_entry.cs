@@ -190,7 +190,7 @@ namespace forms
         private void zur_save_Click(object sender, EventArgs e)
         {
             clicked_save = true;
-            DBupdate.update_fields_to_database("zurnalas", "id=" + this.id.ToString(), new[] { "reg_data", "pastebejimo_data", "bukle", "diagnoze", "paslaugos", "baigtis" }, new[] { "'"+ e_reg_data.Value.ToString("yyyy-MM-dd")+ "'", "'"+e_simp_data.Value.ToString("yyyy-MM-dd")+ "'", "'" + e_bukle.Text + "'", "'" + e_diagnoze.Text + "'", "'" + e_paslaugos.Text + "'", "'" + e_baigtis.Text + "'" });
+            DBupdate.update_fields_to_database_strings("zurnalas", "id=" + this.id.ToString(), new[] { "reg_data", "pastebejimo_data", "bukle", "diagnoze", "paslaugos", "baigtis" }, new[] { e_reg_data.Value.ToString("yyyy-MM-dd"), e_simp_data.Value.ToString("yyyy-MM-dd"),  e_bukle.Text,  e_diagnoze.Text, e_paslaugos.Text, e_baigtis.Text });
         }
 
         private void e_select_savininkas_Click(object sender, EventArgs e)
@@ -335,7 +335,7 @@ namespace forms
                 DialogResult res = MessageBox.Show("Žurnalo sekcija buvo pakeista ir neišsaugota. Ar norite išsaugoti šį įrašą prieš išeidami?", "Dėmesio", MessageBoxButtons.YesNoCancel);
                 if ((int)res == 6)
                 {
-                    DBupdate.update_fields_to_database("zurnalas", "id=" + this.id.ToString(), new[] { "reg_data", "pastebejimo_data", "bukle", "diagnoze", "paslaugos", "baigtis" }, new[] { "'"+e_reg_data.Value.ToString("yyyy-MM-dd")+ "'", "'"+e_simp_data.Value.ToString("yyyy-MM-dd")+ "'", "'"+e_bukle.Text+ "'", "'"+e_diagnoze.Text+ "'", "'"+e_paslaugos.Text+ "'", "'"+e_baigtis.Text+ "'" });
+                    DBupdate.update_fields_to_database_strings("zurnalas", "id=" + this.id.ToString(), new[] { "reg_data", "pastebejimo_data", "bukle", "diagnoze", "paslaugos", "baigtis" }, new[] { e_reg_data.Value.ToString("yyyy-MM-dd"), e_simp_data.Value.ToString("yyyy-MM-dd"), e_bukle.Text, e_diagnoze.Text, e_paslaugos.Text, e_baigtis.Text });
                 }
                 else if ((int)res == 2)
                 {
