@@ -159,7 +159,14 @@ namespace forms
             {
                 if (i > 0)
                 {
-                    lvi.SubItems.Add(row[database_fields[i]].ToString()); 
+                    if (database_fields[i] == "galiojimo_data")
+                    {
+                        lvi.SubItems.Add(((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd"));
+                    }
+                    else
+                    {
+                        lvi.SubItems.Add(row[database_fields[i]].ToString());
+                    }
                 }
                 else
                 {

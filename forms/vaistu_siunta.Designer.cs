@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(vaistu_siunta));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.e_siunta_select_vaistas_button = new System.Windows.Forms.Button();
             this.e_siunta_matas = new System.Windows.Forms.Label();
@@ -416,6 +417,7 @@
             this.Controls.Add(this.e_siunta_gavimo_data);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "vaistu_siunta";
             this.Text = "Vaistų siunta";

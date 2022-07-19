@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zurnalas_entry));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.e_isvaizda = new System.Windows.Forms.Label();
@@ -429,7 +430,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(662, 350);
+            this.groupBox4.Size = new System.Drawing.Size(673, 350);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Žurnalo įrašas";
@@ -574,7 +575,7 @@
             this.panel2.Location = new System.Drawing.Point(503, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(662, 813);
+            this.panel2.Size = new System.Drawing.Size(673, 813);
             this.panel2.TabIndex = 1;
             // 
             // groupBox5
@@ -588,7 +589,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(662, 241);
+            this.groupBox5.Size = new System.Drawing.Size(673, 241);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Atlikti tyrimai";
@@ -642,17 +643,17 @@
             // tyrimas
             // 
             this.tyrimas.Text = "Tyrimas";
-            this.tyrimas.Width = 96;
+            this.tyrimas.Width = 120;
             // 
             // kodas
             // 
             this.kodas.Text = "Kodas";
-            this.kodas.Width = 134;
+            this.kodas.Width = 130;
             // 
             // antraste
             // 
             this.antraste.Text = "Antraste";
-            this.antraste.Width = 210;
+            this.antraste.Width = 220;
             // 
             // tyr_kiekis
             // 
@@ -668,7 +669,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(662, 222);
+            this.groupBox3.Size = new System.Drawing.Size(673, 222);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Skirti vaistai";
@@ -714,7 +715,7 @@
             // pavadinimas
             // 
             this.pavadinimas.Text = "Pavadinimas";
-            this.pavadinimas.Width = 111;
+            this.pavadinimas.Width = 130;
             // 
             // matas
             // 
@@ -724,11 +725,12 @@
             // galiojimo_data
             // 
             this.galiojimo_data.Text = "Galioja iki";
-            this.galiojimo_data.Width = 110;
+            this.galiojimo_data.Width = 130;
             // 
             // kiekis
             // 
             this.kiekis.Text = "Kiekis";
+            this.kiekis.Width = 70;
             // 
             // serija
             // 
@@ -739,13 +741,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1165, 813);
+            this.ClientSize = new System.Drawing.Size(1176, 813);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Zurnalas_entry";
-            this.Text = "Zurnalas_entry";
+            this.Text = "Žurnalo įrašas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.e_on_close);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.reload_main_f_table);
             this.panel1.ResumeLayout(false);

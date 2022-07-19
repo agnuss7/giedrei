@@ -25,6 +25,7 @@ namespace forms
                 h.Width = 150;
 
             LoadSiuntosDataFromDB();
+            kiti_load_all();
         }
 
         //pagrindinis zurnalas -------------------
@@ -271,6 +272,81 @@ namespace forms
         {
             vaistu_siunta deriv = new vaistu_siunta();
             deriv.Show();
+        }
+
+        // --------------------------------
+
+        // kitos lenteles
+
+        public void kiti_load_all(int mode=0)
+        {
+            if (mode == 0)
+            {
+                kiti_abstraktus("select * from vaistai", new[] { "id", "pavadinimas", "matas" }, o_vaistai_list);
+                kiti_abstraktus("select * from tyrimai", new[] { "id", "pavadinimas", "antraste", "kodas" }, o_tyrimai_list);
+                kiti_abstraktus("select * from laikytojai", new[] { "id", "vardas", "pavarde", "adresas", "telefonas" }, o_savininkai_list);
+                kiti_abstraktus("select * from gyvunas", new[] { "id", "vardas", "rusis", "veisle", "zenklinimo_nr", "pasas", "amzius" }, o_augintiniai_list);
+            } 
+            else if (mode == 1)
+            {
+                kiti_abstraktus("select * from gyvunas", new[] { "id", "vardas", "rusis", "veisle", "zenklinimo_nr", "pasas", "amzius" }, o_augintiniai_list);
+            }
+            else if (mode == 2)
+            {
+                kiti_abstraktus("select * from vaistai", new[] { "id", "pavadinimas", "matas" }, o_vaistai_list);
+            }
+            else if (mode == 3)
+            {
+                kiti_abstraktus("select * from tyrimai", new[] { "id", "pavadinimas", "antraste", "kodas" }, o_tyrimai_list);
+            }
+            else
+            {
+                kiti_abstraktus("select * from laikytojai", new[] { "id", "vardas", "pavarde", "adresas", "telefonas" }, o_savininkai_list);
+            }
+        }
+
+        public void kiti_abstraktus(string sql, string[] fields, ListView kiti_list)
+        {
+            SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
+            m_dbConnection.Open();
+
+            using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
+            {
+                SQLiteDataAdapter sda = new SQLiteDataAdapter(sql, conn);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
+                kiti_list.Items.Clear();
+                kiti_list.BeginUpdate();
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    ListViewItem lvi = new ListViewItem();
+                    lvi.Tag = row[fields[0]].ToString();
+                    lvi.Text = row[fields[1]].ToString();
+                    for (int i = 2; i < fields.Length; i++)
+                    {
+                        lvi.SubItems.Add(row[fields[i]].ToString());
+                    }
+                    kiti_list.Items.Add(lvi);
+                }
+                kiti_list.EndUpdate();
+            }
+
+            m_dbConnection.Close();
+        }
+
+        private void o_augintiniai_new_button_Click(object sender, EventArgs e)
+        {
+            augintinis_index deriv = new augintinis_index();
+            deriv.Show();
+        }
+
+        private void o_augintiniai_edit_button_Click(object sender, EventArgs e)
+        {
+            if (o_augintiniai_list.SelectedItems.Count > 0)
+            {
+                augintinis_index deriv = new augintinis_index(Convert.ToInt32(o_augintiniai_list.SelectedItems[0].Tag.ToString()));
+                deriv.Show();
+            }
         }
     }
 }

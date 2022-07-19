@@ -147,7 +147,11 @@ namespace forms
                 }
                 else
                 {
-                    MessageBox.Show("Nepasirinktas vaistas");
+                    DialogResult res = MessageBox.Show("Nepasirinktas vaistas. Ar norite išeiti neišsaugoję įrašo?", "Dėmesio", MessageBoxButtons.YesNo);
+                    if ((int)res != 6)
+                    {
+                        e.Cancel = true;
+                    }
                 }
             }
         }

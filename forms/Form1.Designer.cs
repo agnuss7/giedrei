@@ -32,6 +32,7 @@
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("id2", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("id", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("id2", System.Windows.Forms.HorizontalAlignment.Left);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zurnalas));
             this.zurnalas_list = new System.Windows.Forms.ListView();
             this.l = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -78,31 +79,39 @@
             this.siuntos_search_box = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.o_vaistai_list = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.o_augintiniai_list = new System.Windows.Forms.ListView();
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.o_savininkai_list = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.o_augintiniai_list = new System.Windows.Forms.ListView();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.o_tyrimai_list = new System.Windows.Forms.ListView();
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.o_vaistai_list = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.o_vaistai_new_button = new System.Windows.Forms.Button();
+            this.o_vaistai_edit_button = new System.Windows.Forms.Button();
+            this.o_savininkai_edit_button = new System.Windows.Forms.Button();
+            this.o_savininkai_new_button = new System.Windows.Forms.Button();
+            this.o_tyrimai_edit_button = new System.Windows.Forms.Button();
+            this.o_tyrimai_new_button = new System.Windows.Forms.Button();
+            this.o_augintiniai_edit_button = new System.Windows.Forms.Button();
+            this.o_augintiniai_new_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,12 +120,12 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // zurnalas_list
@@ -644,97 +653,96 @@
             this.tabPage3.Text = "Kiti laukai";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.groupBox8);
-            this.groupBox5.Controls.Add(this.groupBox7);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox5.Location = new System.Drawing.Point(3, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(549, 570);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.groupBox10);
             this.groupBox6.Controls.Add(this.groupBox9);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(552, 3);
+            this.groupBox6.Location = new System.Drawing.Point(537, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(586, 570);
+            this.groupBox6.Size = new System.Drawing.Size(601, 570);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.o_vaistai_list);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox7.Location = new System.Drawing.Point(3, 22);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(543, 268);
-            this.groupBox7.TabIndex = 0;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Vaistai";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.o_tyrimai_list);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 290);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(543, 277);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Tyrimai";
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.o_savininkai_list);
-            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox9.Location = new System.Drawing.Point(3, 22);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(580, 268);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Savininkai";
-            // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.o_augintiniai_edit_button);
+            this.groupBox10.Controls.Add(this.o_augintiniai_new_button);
             this.groupBox10.Controls.Add(this.o_augintiniai_list);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 290);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(580, 277);
+            this.groupBox10.Size = new System.Drawing.Size(595, 277);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Augintiniai";
             // 
-            // o_vaistai_list
+            // o_augintiniai_list
             // 
-            this.o_vaistai_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.o_vaistai_list.FullRowSelect = true;
-            this.o_vaistai_list.HideSelection = false;
-            this.o_vaistai_list.Location = new System.Drawing.Point(29, 25);
-            this.o_vaistai_list.MultiSelect = false;
-            this.o_vaistai_list.Name = "o_vaistai_list";
-            this.o_vaistai_list.Size = new System.Drawing.Size(480, 165);
-            this.o_vaistai_list.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.o_vaistai_list.TabIndex = 0;
-            this.o_vaistai_list.UseCompatibleStateImageBehavior = false;
-            this.o_vaistai_list.View = System.Windows.Forms.View.Details;
+            this.o_augintiniai_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader11,
+            this.columnHeader12,
+            this.columnHeader10});
+            this.o_augintiniai_list.Dock = System.Windows.Forms.DockStyle.Top;
+            this.o_augintiniai_list.FullRowSelect = true;
+            this.o_augintiniai_list.HideSelection = false;
+            this.o_augintiniai_list.Location = new System.Drawing.Point(3, 22);
+            this.o_augintiniai_list.MultiSelect = false;
+            this.o_augintiniai_list.Name = "o_augintiniai_list";
+            this.o_augintiniai_list.Size = new System.Drawing.Size(589, 215);
+            this.o_augintiniai_list.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.o_augintiniai_list.TabIndex = 2;
+            this.o_augintiniai_list.UseCompatibleStateImageBehavior = false;
+            this.o_augintiniai_list.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // columnHeader7
             // 
-            this.columnHeader1.Text = "Pavadinimas";
-            this.columnHeader1.Width = 150;
+            this.columnHeader7.Text = "Vardas";
+            this.columnHeader7.Width = 120;
             // 
-            // columnHeader2
+            // columnHeader8
             // 
-            this.columnHeader2.Text = "Matas";
-            this.columnHeader2.Width = 120;
+            this.columnHeader8.Text = "Rūšis";
+            this.columnHeader8.Width = 100;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Veislė";
+            this.columnHeader9.Width = 100;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.DisplayIndex = 4;
+            this.columnHeader11.Text = "Ženklinimo nr";
+            this.columnHeader11.Width = 120;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.DisplayIndex = 5;
+            this.columnHeader12.Text = "Paso nr";
+            this.columnHeader12.Width = 120;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.DisplayIndex = 3;
+            this.columnHeader10.Text = "Amžius";
+            this.columnHeader10.Width = 100;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.o_savininkai_edit_button);
+            this.groupBox9.Controls.Add(this.o_savininkai_new_button);
+            this.groupBox9.Controls.Add(this.o_savininkai_list);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox9.Location = new System.Drawing.Point(3, 22);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(595, 268);
+            this.groupBox9.TabIndex = 0;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Savininkai";
             // 
             // o_savininkai_list
             // 
@@ -743,12 +751,13 @@
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6});
+            this.o_savininkai_list.Dock = System.Windows.Forms.DockStyle.Top;
             this.o_savininkai_list.FullRowSelect = true;
             this.o_savininkai_list.HideSelection = false;
-            this.o_savininkai_list.Location = new System.Drawing.Point(34, 25);
+            this.o_savininkai_list.Location = new System.Drawing.Point(3, 22);
             this.o_savininkai_list.MultiSelect = false;
             this.o_savininkai_list.Name = "o_savininkai_list";
-            this.o_savininkai_list.Size = new System.Drawing.Size(514, 165);
+            this.o_savininkai_list.Size = new System.Drawing.Size(589, 204);
             this.o_savininkai_list.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.o_savininkai_list.TabIndex = 1;
             this.o_savininkai_list.UseCompatibleStateImageBehavior = false;
@@ -774,58 +783,29 @@
             this.columnHeader6.Text = "Telefonas";
             this.columnHeader6.Width = 120;
             // 
-            // o_augintiniai_list
+            // groupBox5
             // 
-            this.o_augintiniai_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader10});
-            this.o_augintiniai_list.FullRowSelect = true;
-            this.o_augintiniai_list.HideSelection = false;
-            this.o_augintiniai_list.Location = new System.Drawing.Point(34, 36);
-            this.o_augintiniai_list.MultiSelect = false;
-            this.o_augintiniai_list.Name = "o_augintiniai_list";
-            this.o_augintiniai_list.Size = new System.Drawing.Size(514, 165);
-            this.o_augintiniai_list.Sorting = System.Windows.Forms.SortOrder.Ascending;
-            this.o_augintiniai_list.TabIndex = 2;
-            this.o_augintiniai_list.UseCompatibleStateImageBehavior = false;
-            this.o_augintiniai_list.View = System.Windows.Forms.View.Details;
+            this.groupBox5.Controls.Add(this.groupBox8);
+            this.groupBox5.Controls.Add(this.groupBox7);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox5.Location = new System.Drawing.Point(3, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(534, 570);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
             // 
-            // columnHeader7
+            // groupBox8
             // 
-            this.columnHeader7.Text = "Vardas";
-            this.columnHeader7.Width = 120;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Rūšis";
-            this.columnHeader8.Width = 100;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Veislė";
-            this.columnHeader9.Width = 100;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.DisplayIndex = 3;
-            this.columnHeader10.Text = "Amžius";
-            this.columnHeader10.Width = 100;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.DisplayIndex = 4;
-            this.columnHeader11.Text = "Dokumento nr";
-            this.columnHeader11.Width = 120;
-            // 
-            // columnHeader12
-            // 
-            this.columnHeader12.DisplayIndex = 5;
-            this.columnHeader12.Text = "Paso nr";
-            this.columnHeader12.Width = 120;
+            this.groupBox8.Controls.Add(this.o_tyrimai_edit_button);
+            this.groupBox8.Controls.Add(this.o_tyrimai_new_button);
+            this.groupBox8.Controls.Add(this.o_tyrimai_list);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(3, 290);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(528, 277);
+            this.groupBox8.TabIndex = 1;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Tyrimai";
             // 
             // o_tyrimai_list
             // 
@@ -833,12 +813,13 @@
             this.columnHeader13,
             this.columnHeader14,
             this.columnHeader15});
+            this.o_tyrimai_list.Dock = System.Windows.Forms.DockStyle.Top;
             this.o_tyrimai_list.FullRowSelect = true;
             this.o_tyrimai_list.HideSelection = false;
-            this.o_tyrimai_list.Location = new System.Drawing.Point(29, 36);
+            this.o_tyrimai_list.Location = new System.Drawing.Point(3, 22);
             this.o_tyrimai_list.MultiSelect = false;
             this.o_tyrimai_list.Name = "o_tyrimai_list";
-            this.o_tyrimai_list.Size = new System.Drawing.Size(480, 165);
+            this.o_tyrimai_list.Size = new System.Drawing.Size(522, 215);
             this.o_tyrimai_list.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.o_tyrimai_list.TabIndex = 1;
             this.o_tyrimai_list.UseCompatibleStateImageBehavior = false;
@@ -859,6 +840,120 @@
             this.columnHeader15.Text = "Numeris";
             this.columnHeader15.Width = 100;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.o_vaistai_edit_button);
+            this.groupBox7.Controls.Add(this.o_vaistai_new_button);
+            this.groupBox7.Controls.Add(this.o_vaistai_list);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox7.Location = new System.Drawing.Point(3, 22);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(528, 268);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Vaistai";
+            // 
+            // o_vaistai_list
+            // 
+            this.o_vaistai_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.o_vaistai_list.Dock = System.Windows.Forms.DockStyle.Top;
+            this.o_vaistai_list.FullRowSelect = true;
+            this.o_vaistai_list.HideSelection = false;
+            this.o_vaistai_list.Location = new System.Drawing.Point(3, 22);
+            this.o_vaistai_list.MultiSelect = false;
+            this.o_vaistai_list.Name = "o_vaistai_list";
+            this.o_vaistai_list.Size = new System.Drawing.Size(522, 204);
+            this.o_vaistai_list.Sorting = System.Windows.Forms.SortOrder.Ascending;
+            this.o_vaistai_list.TabIndex = 0;
+            this.o_vaistai_list.UseCompatibleStateImageBehavior = false;
+            this.o_vaistai_list.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Pavadinimas";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Matas";
+            this.columnHeader2.Width = 120;
+            // 
+            // o_vaistai_new_button
+            // 
+            this.o_vaistai_new_button.Location = new System.Drawing.Point(263, 233);
+            this.o_vaistai_new_button.Name = "o_vaistai_new_button";
+            this.o_vaistai_new_button.Size = new System.Drawing.Size(75, 30);
+            this.o_vaistai_new_button.TabIndex = 1;
+            this.o_vaistai_new_button.Text = "Naujas";
+            this.o_vaistai_new_button.UseVisualStyleBackColor = true;
+            // 
+            // o_vaistai_edit_button
+            // 
+            this.o_vaistai_edit_button.Location = new System.Drawing.Point(344, 233);
+            this.o_vaistai_edit_button.Name = "o_vaistai_edit_button";
+            this.o_vaistai_edit_button.Size = new System.Drawing.Size(168, 29);
+            this.o_vaistai_edit_button.TabIndex = 2;
+            this.o_vaistai_edit_button.Text = "Redaguoti pasirinktą";
+            this.o_vaistai_edit_button.UseVisualStyleBackColor = true;
+            // 
+            // o_savininkai_edit_button
+            // 
+            this.o_savininkai_edit_button.Location = new System.Drawing.Point(409, 232);
+            this.o_savininkai_edit_button.Name = "o_savininkai_edit_button";
+            this.o_savininkai_edit_button.Size = new System.Drawing.Size(168, 29);
+            this.o_savininkai_edit_button.TabIndex = 4;
+            this.o_savininkai_edit_button.Text = "Redaguoti pasirinktą";
+            this.o_savininkai_edit_button.UseVisualStyleBackColor = true;
+            // 
+            // o_savininkai_new_button
+            // 
+            this.o_savininkai_new_button.Location = new System.Drawing.Point(328, 232);
+            this.o_savininkai_new_button.Name = "o_savininkai_new_button";
+            this.o_savininkai_new_button.Size = new System.Drawing.Size(75, 30);
+            this.o_savininkai_new_button.TabIndex = 3;
+            this.o_savininkai_new_button.Text = "Naujas";
+            this.o_savininkai_new_button.UseVisualStyleBackColor = true;
+            // 
+            // o_tyrimai_edit_button
+            // 
+            this.o_tyrimai_edit_button.Location = new System.Drawing.Point(344, 243);
+            this.o_tyrimai_edit_button.Name = "o_tyrimai_edit_button";
+            this.o_tyrimai_edit_button.Size = new System.Drawing.Size(168, 29);
+            this.o_tyrimai_edit_button.TabIndex = 4;
+            this.o_tyrimai_edit_button.Text = "Redaguoti pasirinktą";
+            this.o_tyrimai_edit_button.UseVisualStyleBackColor = true;
+            // 
+            // o_tyrimai_new_button
+            // 
+            this.o_tyrimai_new_button.Location = new System.Drawing.Point(263, 243);
+            this.o_tyrimai_new_button.Name = "o_tyrimai_new_button";
+            this.o_tyrimai_new_button.Size = new System.Drawing.Size(75, 30);
+            this.o_tyrimai_new_button.TabIndex = 3;
+            this.o_tyrimai_new_button.Text = "Naujas";
+            this.o_tyrimai_new_button.UseVisualStyleBackColor = true;
+            // 
+            // o_augintiniai_edit_button
+            // 
+            this.o_augintiniai_edit_button.Location = new System.Drawing.Point(409, 243);
+            this.o_augintiniai_edit_button.Name = "o_augintiniai_edit_button";
+            this.o_augintiniai_edit_button.Size = new System.Drawing.Size(168, 29);
+            this.o_augintiniai_edit_button.TabIndex = 4;
+            this.o_augintiniai_edit_button.Text = "Redaguoti pasirinktą";
+            this.o_augintiniai_edit_button.UseVisualStyleBackColor = true;
+            this.o_augintiniai_edit_button.Click += new System.EventHandler(this.o_augintiniai_edit_button_Click);
+            // 
+            // o_augintiniai_new_button
+            // 
+            this.o_augintiniai_new_button.Location = new System.Drawing.Point(328, 243);
+            this.o_augintiniai_new_button.Name = "o_augintiniai_new_button";
+            this.o_augintiniai_new_button.Size = new System.Drawing.Size(75, 30);
+            this.o_augintiniai_new_button.TabIndex = 3;
+            this.o_augintiniai_new_button.Text = "Naujas";
+            this.o_augintiniai_new_button.UseVisualStyleBackColor = true;
+            this.o_augintiniai_new_button.Click += new System.EventHandler(this.o_augintiniai_new_button_Click);
+            // 
             // Zurnalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -867,6 +962,7 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.l);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Zurnalas";
             this.Text = "Form1";
@@ -880,12 +976,12 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -964,6 +1060,14 @@
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.Button o_augintiniai_edit_button;
+        private System.Windows.Forms.Button o_augintiniai_new_button;
+        private System.Windows.Forms.Button o_savininkai_edit_button;
+        private System.Windows.Forms.Button o_savininkai_new_button;
+        private System.Windows.Forms.Button o_tyrimai_edit_button;
+        private System.Windows.Forms.Button o_tyrimai_new_button;
+        private System.Windows.Forms.Button o_vaistai_edit_button;
+        private System.Windows.Forms.Button o_vaistai_new_button;
     }
 }
 
