@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace forms
@@ -47,8 +41,8 @@ namespace forms
                         e_siunta_gavimo_data.Value = (DateTime)row["gavimo_data"];
                         e_siunta_galiojimo_data.Value = (DateTime)row["galiojimo_data"];
                         e_siunta_group.Visible = false;
-                        e_siunta_gautas_kiekis.Text = row["gautas_kiekis"].ToString();
-                        e_siunta_turimas_kiekis.Text = row["turimas_kiekis"].ToString();
+                        e_siunta_gautas_kiekis.Text = row["gautas_kiekis"].ToString().Replace('.',',');
+                        e_siunta_turimas_kiekis.Text = row["turimas_kiekis"].ToString().Replace('.', ',');
                     }
                 }
                 m_dbConnection.Close();
@@ -84,7 +78,7 @@ namespace forms
             {
                 if (id > 0)
                 {
-                    values[6] = e_siunta_gautas_kiekis.Text.Replace(',','.');
+                    values[6] = e_siunta_gautas_kiekis.Text.Replace(',', '.');
                     DBupdate.update_fields_to_database_strings("vaistai_siuntos", "id=" + id.ToString(), fields, values);
                 }
                 else
@@ -162,9 +156,9 @@ namespace forms
         {
             if (e_siunta_kiekis_pokytis.SelectedItem != null)
             {
-                float vykdymo_kiekis = float.Parse(e_siunta_add_sveikas.Value.ToString() + "." + e_siunta_add_1.Value.ToString() + e_siunta_add_2.Value.ToString(), CultureInfo.InvariantCulture);
-                float turimas_kiekis = float.Parse(e_siunta_turimas_kiekis.Text.Replace(',', '.'), CultureInfo.InvariantCulture);
-                float gautas_kiekis = float.Parse(e_siunta_gautas_kiekis.Text.Replace(',', '.'), CultureInfo.InvariantCulture);
+                double vykdymo_kiekis = double.Parse(e_siunta_add_sveikas.Value.ToString() + "." + e_siunta_add_1.Value.ToString() + e_siunta_add_2.Value.ToString(), CultureInfo.InvariantCulture);
+                double turimas_kiekis = double.Parse(e_siunta_turimas_kiekis.Text.Replace(',', '.'), CultureInfo.InvariantCulture);
+                double gautas_kiekis = double.Parse(e_siunta_gautas_kiekis.Text.Replace(',', '.'), CultureInfo.InvariantCulture);
                 if (vykdymo_kiekis > 0)
                 {
                     switch (e_siunta_kiekis_pokytis.SelectedIndex)

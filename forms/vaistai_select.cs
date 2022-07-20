@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace forms
@@ -73,7 +67,6 @@ namespace forms
                 {
                     if (f != null)
                     {
-                        MessageBox.Show(f.Name);
                         if (f.Name =="vaistu_siunta" && ((vaistu_siunta)f).id == siunta_id)
                         {
                             ((vaistu_siunta)f).set_vaistas(sel_id);

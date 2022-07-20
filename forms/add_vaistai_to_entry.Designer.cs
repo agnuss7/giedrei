@@ -228,7 +228,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "add_vaistai_to_entry";
-            this.Text = "add_vaistai_to_entry";
+            this.Text = "Vaistų skyrimas";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sveikas_kiekis)).EndInit();

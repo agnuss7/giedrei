@@ -80,14 +80,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(292, 134);
+            this.groupBox1.Size = new System.Drawing.Size(292, 137);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vaistas";
             // 
             // e_siunta_select_vaistas_button
             // 
-            this.e_siunta_select_vaistas_button.Location = new System.Drawing.Point(124, 91);
+            this.e_siunta_select_vaistas_button.Location = new System.Drawing.Point(134, 98);
             this.e_siunta_select_vaistas_button.Name = "e_siunta_select_vaistas_button";
             this.e_siunta_select_vaistas_button.Size = new System.Drawing.Size(134, 28);
             this.e_siunta_select_vaistas_button.TabIndex = 1;
@@ -219,7 +219,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 171);
+            this.label7.Location = new System.Drawing.Point(11, 174);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 20);
             this.label7.TabIndex = 10;
@@ -265,7 +265,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 211);
+            this.label9.Location = new System.Drawing.Point(8, 214);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 20);
             this.label9.TabIndex = 14;
@@ -274,7 +274,7 @@
             // e_siunta_turimas_kiekis
             // 
             this.e_siunta_turimas_kiekis.AutoSize = true;
-            this.e_siunta_turimas_kiekis.Location = new System.Drawing.Point(122, 211);
+            this.e_siunta_turimas_kiekis.Location = new System.Drawing.Point(122, 214);
             this.e_siunta_turimas_kiekis.Name = "e_siunta_turimas_kiekis";
             this.e_siunta_turimas_kiekis.Size = new System.Drawing.Size(0, 20);
             this.e_siunta_turimas_kiekis.TabIndex = 15;
@@ -334,7 +334,7 @@
             this.groupBox2.Controls.Add(this.e_siunta_add_sveikas);
             this.groupBox2.Controls.Add(this.e_siunta_add_2);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(12, 251);
+            this.groupBox2.Location = new System.Drawing.Point(12, 254);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(292, 100);
             this.groupBox2.TabIndex = 21;
@@ -368,7 +368,7 @@
             // e_siunta_gautas_kiekis
             // 
             this.e_siunta_gautas_kiekis.AutoSize = true;
-            this.e_siunta_gautas_kiekis.Location = new System.Drawing.Point(122, 171);
+            this.e_siunta_gautas_kiekis.Location = new System.Drawing.Point(122, 174);
             this.e_siunta_gautas_kiekis.Name = "e_siunta_gautas_kiekis";
             this.e_siunta_gautas_kiekis.Size = new System.Drawing.Size(0, 20);
             this.e_siunta_gautas_kiekis.TabIndex = 22;
@@ -379,7 +379,7 @@
             this.e_siunta_group.Controls.Add(this.e_siunta_gautas_kiekis_sveikas);
             this.e_siunta_group.Controls.Add(this.e_siunta_comma);
             this.e_siunta_group.Controls.Add(this.e_siunta_gautas_kiekis_2);
-            this.e_siunta_group.Location = new System.Drawing.Point(118, 150);
+            this.e_siunta_group.Location = new System.Drawing.Point(118, 153);
             this.e_siunta_group.Name = "e_siunta_group";
             this.e_siunta_group.Size = new System.Drawing.Size(181, 51);
             this.e_siunta_group.TabIndex = 23;
@@ -387,7 +387,7 @@
             // 
             // e_siunta_save_button
             // 
-            this.e_siunta_save_button.Location = new System.Drawing.Point(633, 321);
+            this.e_siunta_save_button.Location = new System.Drawing.Point(640, 328);
             this.e_siunta_save_button.Name = "e_siunta_save_button";
             this.e_siunta_save_button.Size = new System.Drawing.Size(84, 31);
             this.e_siunta_save_button.TabIndex = 24;
@@ -399,7 +399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 363);
+            this.ClientSize = new System.Drawing.Size(736, 371);
             this.Controls.Add(this.e_siunta_save_button);
             this.Controls.Add(this.e_siunta_group);
             this.Controls.Add(this.e_siunta_gautas_kiekis);

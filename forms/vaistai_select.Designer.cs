@@ -120,7 +120,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "vaistai_select";
-            this.Text = "vaistai_select";
+            this.Text = "Skirti vaistus";
             this.ResumeLayout(false);
             this.PerformLayout();
 

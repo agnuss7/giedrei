@@ -196,7 +196,7 @@
             this.gyv_kurti.Name = "gyv_kurti";
             this.gyv_kurti.Size = new System.Drawing.Size(113, 39);
             this.gyv_kurti.TabIndex = 17;
-            this.gyv_kurti.Text = "Kurti";
+            this.gyv_kurti.Text = "Saugoti";
             this.gyv_kurti.UseVisualStyleBackColor = true;
             this.gyv_kurti.Click += new System.EventHandler(this.gyv_kurti_Click);
             // 
@@ -226,7 +226,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "augintinis_index";
-            this.Text = "augintinis_index";
+            this.Text = "Augintinis";
             this.ResumeLayout(false);
             this.PerformLayout();
 

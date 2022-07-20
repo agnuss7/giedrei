@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using System.Data;
 using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace forms
@@ -96,7 +90,6 @@ namespace forms
                 if (where != "")
                 {
                     sql = "select * from ("+sql+") where "+ where;
-                    MessageBox.Show(sql); 
                 }
                 SQLiteDataAdapter sda = new SQLiteDataAdapter(sql, conn); 
                 DataSet ds = new DataSet();
@@ -229,7 +222,6 @@ namespace forms
                 if (where != "")
                 {
                     sql += " where " + where;
-                    MessageBox.Show(sql);
                 }
                 SQLiteDataAdapter sda = new SQLiteDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
@@ -346,6 +338,67 @@ namespace forms
             {
                 augintinis_index deriv = new augintinis_index(Convert.ToInt32(o_augintiniai_list.SelectedItems[0].Tag.ToString()));
                 deriv.Show();
+            }
+        }
+
+        private void o_vaistai_new_button_Click(object sender, EventArgs e)
+        {
+            vaistai_index deriv = new vaistai_index();
+            deriv.Show();
+        }
+
+        private void o_vaistai_edit_button_Click(object sender, EventArgs e)
+        {
+            if (o_vaistai_list.SelectedItems.Count > 0)
+            {
+                vaistai_index deriv = new vaistai_index(Convert.ToInt32(o_vaistai_list.SelectedItems[0].Tag.ToString()));
+                deriv.Show();
+            }
+        }
+
+        private void o_tyrimai_new_button_Click(object sender, EventArgs e)
+        {
+            tyrimai_index deriv = new tyrimai_index();
+            deriv.Show();
+        }
+
+        private void o_tyrimai_edit_button_Click(object sender, EventArgs e)
+        {
+            if (o_tyrimai_list.SelectedItems.Count > 0)
+            {
+                tyrimai_index deriv = new tyrimai_index(Convert.ToInt32(o_tyrimai_list.SelectedItems[0].Tag.ToString()));
+                deriv.Show();
+            }
+        }
+
+        private void o_savininkai_new_button_Click(object sender, EventArgs e)
+        {
+            laikytojai_index deriv = new laikytojai_index();
+            deriv.Show();
+        }
+
+        private void o_savininkai_edit_button_Click(object sender, EventArgs e)
+        {
+            if (o_savininkai_list.SelectedItems.Count > 0)
+            {
+                laikytojai_index deriv = new laikytojai_index(Convert.ToInt32(o_savininkai_list.SelectedItems[0].Tag.ToString()));
+                deriv.Show();
+            }
+        }
+
+        private void tab_changed(object sender, TabControlEventArgs e)
+        {
+            switch (e.TabPageIndex)
+            {
+                case 0:
+                    LoadDataFromDB();
+                    break;
+                case 1:
+                    LoadSiuntosDataFromDB();
+                    break;
+                case 2:
+                    kiti_load_all();
+                    break;
             }
         }
     }

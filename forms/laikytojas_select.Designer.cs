@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(laikytojas_select));
             this.select_laikytojas = new System.Windows.Forms.ListView();
             this.vardas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pavarde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -124,9 +125,10 @@
             this.Controls.Add(this.laikytojas_select_searchbox);
             this.Controls.Add(this.select_laikytojas);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "laikytojas_select";
-            this.Text = "laikytojas_select";
+            this.Text = "Pasirinkti savininką";
             this.ResumeLayout(false);
             this.PerformLayout();
 

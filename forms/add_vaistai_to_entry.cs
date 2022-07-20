@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
 using System.Globalization;
@@ -82,8 +76,8 @@ namespace forms
         {
             if (vaistai_to_add.SelectedItems.Count > 0)
             {
-                float kiekis = float.Parse(sveikas_kiekis.Value.ToString() + "." + pirmas_kiekis.Value.ToString() + antras_kiekis.Value.ToString(), CultureInfo.InvariantCulture);
-                float esamas_k = float.Parse(vaistai_to_add.SelectedItems[0].SubItems[4].Text);
+                double kiekis = double.Parse(sveikas_kiekis.Value.ToString() + "." + pirmas_kiekis.Value.ToString() + antras_kiekis.Value.ToString(), CultureInfo.InvariantCulture);
+                double esamas_k = double.Parse(vaistai_to_add.SelectedItems[0].SubItems[4].Text);
                 if (kiekis > esamas_k)
                 {
                     MessageBox.Show("Jūsų nurodytas išrašomas kiekis per didelis.");
@@ -98,7 +92,6 @@ namespace forms
                     {
                         DBupdate.add_new_to_database("zurnalas_vaistai", "zurnalas_id", zurnalas_id, new[] { "vaistai_id", "kiekis" }, new[] { vaistai_to_add.SelectedItems[0].Tag.ToString(), kiekis.ToString().Replace(',','.') });
                     }
-                    MessageBox.Show((esamas_k - kiekis).ToString());
                     DBupdate.quick_id_update_to_database("vaistai_siuntos", "id", vaistai_to_add.SelectedItems[0].Tag.ToString(), "turimas_kiekis", "round("+(esamas_k - kiekis).ToString().Replace(',', '.')+",2)");
                     foreach (Form f in Application.OpenForms)
                     {

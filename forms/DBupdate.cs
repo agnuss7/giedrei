@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SQLite;
-using System.Windows.Forms;
 namespace forms
 {
     public static class DBupdate
@@ -38,7 +33,6 @@ namespace forms
             }
             updates = updates.Remove(updates.Length - 1, 1);
             string sql = "update " + destDB + " set " + updates + " where " + where;
-            MessageBox.Show(sql);
             using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
             {
                 using (SQLiteCommand sqlcmd = new SQLiteCommand(sql, conn))
@@ -119,7 +113,7 @@ namespace forms
             SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
             m_dbConnection.Open();
 
-            string sql = "select max(" + IdField + ")+1 id from " + database;
+            string sql = "select coalesce(max(" + IdField + ")+1,1) id from " + database;
             using (SQLiteConnection conn = new SQLiteConnection(m_dbConnection))
             {
                 SQLiteCommand sda = new SQLiteCommand(sql, conn);
