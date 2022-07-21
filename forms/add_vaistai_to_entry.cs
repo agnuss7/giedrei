@@ -22,7 +22,7 @@ namespace forms
             string sql = "select a.id, b.pavadinimas pav, b.matas, a.galiojimo_data, a.serija, a.turimas_kiekis from vaistai_siuntos a join vaistai b on b.id=a.vaistai_id where a.turimas_kiekis>0 ";
             if (where != "")
             {
-                sql += search.search_box(where, new[] { "pav", "a.serija" });
+                sql += "and " + search.search_box(where, new[] { "pav", "a.serija" });
             }
             SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
             m_dbConnection.Open();
