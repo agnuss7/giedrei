@@ -137,7 +137,7 @@
             this.e_siunta_gavimo_data.Name = "e_siunta_gavimo_data";
             this.e_siunta_gavimo_data.Size = new System.Drawing.Size(200, 26);
             this.e_siunta_gavimo_data.TabIndex = 1;
-            this.e_siunta_gavimo_data.Value = new System.DateTime(2022, 7, 17, 13, 52, 21, 0);
+            this.e_siunta_gavimo_data.Value = new System.DateTime(2022, 8, 2, 0, 0, 0, 0);
             this.e_siunta_gavimo_data.ValueChanged += new System.EventHandler(this.set_unsaved);
             // 
             // label3
@@ -166,7 +166,7 @@
             this.e_siunta_galiojimo_data.Name = "e_siunta_galiojimo_data";
             this.e_siunta_galiojimo_data.Size = new System.Drawing.Size(200, 26);
             this.e_siunta_galiojimo_data.TabIndex = 3;
-            this.e_siunta_galiojimo_data.Value = new System.DateTime(2022, 7, 17, 13, 52, 13, 0);
+            this.e_siunta_galiojimo_data.Value = new System.DateTime(2022, 8, 2, 0, 0, 0, 0);
             this.e_siunta_galiojimo_data.ValueChanged += new System.EventHandler(this.set_unsaved);
             // 
             // label5

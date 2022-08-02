@@ -50,7 +50,7 @@ namespace forms
                 }
                 m_dbConnection.Close();
                 update_info_section("select b.id,a.pavadinimas, a.matas, b.galiojimo_data, c.kiekis, b.serija from zurnalas_vaistai c join vaistai_siuntos b on b.id=c.vaistai_id join vaistai a on a.id=b.vaistai_id where c.zurnalas_id=" + this.id.ToString(), new info_updater(vaistai_info_fill));
-                update_info_section("select a.id,a.pavadinimas, a.antraste, a.kodas, b.kiekis from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
+                update_info_section("select b.id,a.pavadinimas, a.antraste, a.kodas, b.data, b.rezultatas from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
                 clicked_save = true;
             }
             else
@@ -173,12 +173,19 @@ namespace forms
         {
             ListViewItem lvi = new ListViewItem();
             lvi.Tag = row["id"].ToString();
-            string[] database_fields = { "pavadinimas", "kodas", "antraste", "kiekis" };
+            string[] database_fields = { "pavadinimas", "kodas", "antraste","data", "rezultatas" };
             for (int i = 0; i < database_fields.Length; i++)
             {
                 if (i > 0)
                 {
-                    lvi.SubItems.Add(row[database_fields[i]].ToString());
+                    if (database_fields[i] == "data")
+                    {
+                        lvi.SubItems.Add(((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd"));
+                    }
+                    else
+                    {
+                        lvi.SubItems.Add(row[database_fields[i]].ToString());
+                    }
                 }
                 else
                 {
@@ -214,48 +221,20 @@ namespace forms
                 string tyr_id = DBupdate.GetValueFrom("tyrimai", "id", "pavadinimas='" + kodas + "'");
                 if (tyr_id != "")
                 {
-                    if (DBupdate.RowExists("zurnalas_tyrimai","tyrimai_id="+tyr_id+" and zurnalas_id=" + id.ToString()))
-                    {
-                        if (DBupdate.RowExists("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString() + " and kiekis is null"))
-                        {
-                            DBupdate.update_fields_to_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString(), new[] { "kiekis" }, new[] { "2" });
-                        } else
-                        {
-                            DBupdate.update_fields_to_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString(), new[] { "kiekis" }, new[] { "kiekis+1" });
-                        }
-                    }
-                    else
-                    {
-                        DBupdate.add_new_to_database("zurnalas_tyrimai","zurnalas_id",id,new[] { "tyrimai_id" },new[] { tyr_id });
-                    }
+                    DBupdate.add_new_to_database("zurnalas_tyrimai","id",DBupdate.GenerateId("zurnalas_tyrimai","id"),new[] { "zurnalas_id","tyrimai_id","data" },new[] { id.ToString(),tyr_id,e_tyrimai_data.Value.ToString("yyyy-MM-dd") });
                 }
                 e_tyrimai.Items.Clear();
-                update_info_section("select a.id,a.pavadinimas, a.antraste, a.kodas, b.kiekis from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
+                update_info_section("select b.id,a.pavadinimas, a.antraste, a.kodas, b.data,b.rezultatas from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
             }
         }
 
         private void e_tyrimas_remove_Click(object sender, EventArgs e)
         {
-            if (e_tyrimai_select.SelectedItem != null)
+            if (e_tyrimai.SelectedItems.Count>0)
             {
-                string kodas = e_tyrimai_select.SelectedItem.ToString().Remove(e_tyrimai_select.SelectedItem.ToString().IndexOf('_'));
-                string tyr_id = DBupdate.GetValueFrom("tyrimai", "id", "pavadinimas='" + kodas + "'");
-                if (tyr_id != "")
-                {
-                    if (DBupdate.RowExists("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString()))
-                    {
-                        if (DBupdate.RowExists("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString() + " and (kiekis is null or kiekis=1)"))
-                        {
-                            DBupdate.delete_from_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString());
-                        }
-                        else
-                        {
-                            DBupdate.update_fields_to_database("zurnalas_tyrimai", "tyrimai_id=" + tyr_id + " and zurnalas_id=" + id.ToString(), new[] { "kiekis" }, new[] { "kiekis-1" });
-                        }
-                    }
-                }
+                DBupdate.delete_from_database("zurnalas_tyrimai", "id=" + e_tyrimai.SelectedItems[0].Tag.ToString());                        
                 e_tyrimai.Items.Clear();
-                update_info_section("select a.id,a.pavadinimas, a.antraste, a.kodas, b.kiekis from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
+                update_info_section("select b.id,a.pavadinimas, a.antraste, a.kodas, b.data,b.rezultatas from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
             }
         }
 
@@ -317,10 +296,10 @@ namespace forms
                 DialogResult res = MessageBox.Show("Yra neįrašytų/neišsaugotų būtinų sekcijų: "+laukai+" Ar norite išeiti neišsaugoję šio įrašo?", "Dėmesio", MessageBoxButtons.YesNo);
                 if ((int)res == 6)
                 {
-                    if (DBupdate.RowExists("zurnalas_vaistai", "zurnalas_id=" + this.id.ToString()))
+                    if (DBupdate.RowExists("zurnalas_vaistai", "zurnalas_id=" + this.id.ToString()) || DBupdate.RowExists("zurnalas_tyrimai", "zurnalas_id=" + this.id.ToString()))
                     {
                         e.Cancel = true;
-                        MessageBox.Show("Dėmesio! Trynimas negalimas, nes buvo skirti vaistai! Atšaukite vaistų skyrimus, kad išvengti neatitikimų.");
+                        MessageBox.Show("Dėmesio! Trynimas negalimas, nes buvo skirti vaistai ar tyrimai! Atšaukite vaistų ir tyrimų skyrimus, kad išvengti neatitikimų.");
                     }
                     else
                     {
@@ -362,6 +341,16 @@ namespace forms
                         break;
                     }
                 }
+            }
+        }
+
+        private void e_tyrimai_add_result_button_Click(object sender, EventArgs e)
+        {
+            if (e_tyrimai.SelectedItems.Count > 0 && e_tyrimas_rezultatas.Text!="")
+            {
+                DBupdate.update_fields_to_database_strings("zurnalas_tyrimai", "id=" + e_tyrimai.SelectedItems[0].Tag.ToString(), new[] { "rezultatas"}, new[] { e_tyrimas_rezultatas.Text });
+                e_tyrimai.Items.Clear();
+                update_info_section("select b.id,a.pavadinimas, a.antraste, a.kodas, b.data,b.rezultatas from zurnalas_tyrimai b join tyrimai a on a.id=b.tyrimai_id where b.zurnalas_id=" + this.id.ToString(), new info_updater(tyrimas_info_fill));
             }
         }
     }

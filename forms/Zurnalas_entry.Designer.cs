@@ -74,6 +74,9 @@
             this.e_reg_data = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.e_tyrimai_add_result_button = new System.Windows.Forms.Button();
+            this.e_tyrimas_rezultatas = new System.Windows.Forms.TextBox();
+            this.e_tyrimai_data = new System.Windows.Forms.DateTimePicker();
             this.e_tyrimas_remove = new System.Windows.Forms.Button();
             this.e_tyrimas_add = new System.Windows.Forms.Button();
             this.e_tyrimai_select = new System.Windows.Forms.ComboBox();
@@ -81,7 +84,8 @@
             this.tyrimas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.kodas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.antraste = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tyr_kiekis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.rezultatas = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.e_remove_vaistai = new System.Windows.Forms.Button();
             this.e_add_vaistai = new System.Windows.Forms.Button();
@@ -108,7 +112,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(503, 813);
+            this.panel1.Size = new System.Drawing.Size(503, 827);
             this.panel1.TabIndex = 0;
             // 
             // groupBox2
@@ -135,7 +139,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(503, 493);
+            this.groupBox2.Size = new System.Drawing.Size(503, 507);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Augintinis";
@@ -430,14 +434,14 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(673, 350);
+            this.groupBox4.Size = new System.Drawing.Size(708, 364);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Žurnalo įrašas";
             // 
             // zur_save
             // 
-            this.zur_save.Location = new System.Drawing.Point(517, 312);
+            this.zur_save.Location = new System.Drawing.Point(572, 327);
             this.zur_save.Name = "zur_save";
             this.zur_save.Size = new System.Drawing.Size(99, 30);
             this.zur_save.TabIndex = 12;
@@ -448,7 +452,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(33, 279);
+            this.label14.Location = new System.Drawing.Point(26, 294);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(57, 20);
@@ -458,7 +462,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(33, 243);
+            this.label13.Location = new System.Drawing.Point(27, 245);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 20);
@@ -468,7 +472,7 @@
             // Diagnozė
             // 
             this.Diagnozė.AutoSize = true;
-            this.Diagnozė.Location = new System.Drawing.Point(33, 207);
+            this.Diagnozė.Location = new System.Drawing.Point(27, 209);
             this.Diagnozė.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Diagnozė.Name = "Diagnozė";
             this.Diagnozė.Size = new System.Drawing.Size(77, 20);
@@ -478,7 +482,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(33, 101);
+            this.label12.Location = new System.Drawing.Point(27, 103);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 20);
@@ -488,7 +492,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(33, 69);
+            this.label11.Location = new System.Drawing.Point(27, 68);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(207, 20);
@@ -498,7 +502,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(33, 33);
+            this.label10.Location = new System.Drawing.Point(27, 32);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(136, 20);
@@ -507,38 +511,39 @@
             // 
             // e_baigtis
             // 
-            this.e_baigtis.Location = new System.Drawing.Point(144, 279);
+            this.e_baigtis.Location = new System.Drawing.Point(124, 292);
             this.e_baigtis.Margin = new System.Windows.Forms.Padding(4);
             this.e_baigtis.Name = "e_baigtis";
-            this.e_baigtis.Size = new System.Drawing.Size(472, 26);
+            this.e_baigtis.Size = new System.Drawing.Size(547, 26);
             this.e_baigtis.TabIndex = 5;
             this.e_baigtis.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_paslaugos
             // 
-            this.e_paslaugos.Location = new System.Drawing.Point(144, 243);
+            this.e_paslaugos.Location = new System.Drawing.Point(124, 243);
             this.e_paslaugos.Margin = new System.Windows.Forms.Padding(4);
+            this.e_paslaugos.Multiline = true;
             this.e_paslaugos.Name = "e_paslaugos";
-            this.e_paslaugos.Size = new System.Drawing.Size(472, 26);
+            this.e_paslaugos.Size = new System.Drawing.Size(547, 41);
             this.e_paslaugos.TabIndex = 4;
             this.e_paslaugos.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_diagnoze
             // 
-            this.e_diagnoze.Location = new System.Drawing.Point(144, 207);
+            this.e_diagnoze.Location = new System.Drawing.Point(124, 207);
             this.e_diagnoze.Margin = new System.Windows.Forms.Padding(4);
             this.e_diagnoze.Name = "e_diagnoze";
-            this.e_diagnoze.Size = new System.Drawing.Size(472, 26);
+            this.e_diagnoze.Size = new System.Drawing.Size(547, 26);
             this.e_diagnoze.TabIndex = 3;
             this.e_diagnoze.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_bukle
             // 
-            this.e_bukle.Location = new System.Drawing.Point(144, 101);
+            this.e_bukle.Location = new System.Drawing.Point(124, 101);
             this.e_bukle.Margin = new System.Windows.Forms.Padding(4);
             this.e_bukle.Multiline = true;
             this.e_bukle.Name = "e_bukle";
-            this.e_bukle.Size = new System.Drawing.Size(472, 96);
+            this.e_bukle.Size = new System.Drawing.Size(547, 92);
             this.e_bukle.TabIndex = 2;
             this.e_bukle.TextChanged += new System.EventHandler(this.change_saved_status);
             // 
@@ -546,24 +551,24 @@
             // 
             this.e_simp_data.CustomFormat = "yyyy-MM-dd";
             this.e_simp_data.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.e_simp_data.Location = new System.Drawing.Point(249, 61);
+            this.e_simp_data.Location = new System.Drawing.Point(243, 61);
             this.e_simp_data.Margin = new System.Windows.Forms.Padding(4);
             this.e_simp_data.Name = "e_simp_data";
             this.e_simp_data.Size = new System.Drawing.Size(244, 26);
             this.e_simp_data.TabIndex = 1;
-            this.e_simp_data.Value = new System.DateTime(2022, 7, 17, 0, 0, 0, 0);
+            this.e_simp_data.Value = new System.DateTime(2022, 8, 2, 0, 0, 0, 0);
             this.e_simp_data.ValueChanged += new System.EventHandler(this.change_saved_status);
             // 
             // e_reg_data
             // 
             this.e_reg_data.CustomFormat = "yyyy-MM-dd";
             this.e_reg_data.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.e_reg_data.Location = new System.Drawing.Point(249, 27);
+            this.e_reg_data.Location = new System.Drawing.Point(243, 27);
             this.e_reg_data.Margin = new System.Windows.Forms.Padding(4);
             this.e_reg_data.Name = "e_reg_data";
             this.e_reg_data.Size = new System.Drawing.Size(244, 26);
             this.e_reg_data.TabIndex = 0;
-            this.e_reg_data.Value = new System.DateTime(2022, 7, 17, 0, 0, 0, 0);
+            this.e_reg_data.Value = new System.DateTime(2022, 8, 2, 0, 0, 0, 0);
             this.e_reg_data.ValueChanged += new System.EventHandler(this.change_saved_status);
             // 
             // panel2
@@ -575,40 +580,70 @@
             this.panel2.Location = new System.Drawing.Point(503, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(673, 813);
+            this.panel2.Size = new System.Drawing.Size(708, 827);
             this.panel2.TabIndex = 1;
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.e_tyrimai_add_result_button);
+            this.groupBox5.Controls.Add(this.e_tyrimas_rezultatas);
+            this.groupBox5.Controls.Add(this.e_tyrimai_data);
             this.groupBox5.Controls.Add(this.e_tyrimas_remove);
             this.groupBox5.Controls.Add(this.e_tyrimas_add);
             this.groupBox5.Controls.Add(this.e_tyrimai_select);
             this.groupBox5.Controls.Add(this.e_tyrimai);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(0, 222);
+            this.groupBox5.Location = new System.Drawing.Point(0, 214);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(673, 241);
+            this.groupBox5.Size = new System.Drawing.Size(708, 249);
             this.groupBox5.TabIndex = 2;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Atlikti tyrimai";
             // 
+            // e_tyrimai_add_result_button
+            // 
+            this.e_tyrimai_add_result_button.Location = new System.Drawing.Point(394, 208);
+            this.e_tyrimai_add_result_button.Name = "e_tyrimai_add_result_button";
+            this.e_tyrimai_add_result_button.Size = new System.Drawing.Size(220, 30);
+            this.e_tyrimai_add_result_button.TabIndex = 7;
+            this.e_tyrimai_add_result_button.Text = "Pridėti rezultatą pažymėtam";
+            this.e_tyrimai_add_result_button.UseVisualStyleBackColor = true;
+            this.e_tyrimai_add_result_button.Click += new System.EventHandler(this.e_tyrimai_add_result_button_Click);
+            // 
+            // e_tyrimas_rezultatas
+            // 
+            this.e_tyrimas_rezultatas.Location = new System.Drawing.Point(28, 210);
+            this.e_tyrimas_rezultatas.Name = "e_tyrimas_rezultatas";
+            this.e_tyrimas_rezultatas.Size = new System.Drawing.Size(360, 26);
+            this.e_tyrimas_rezultatas.TabIndex = 6;
+            // 
+            // e_tyrimai_data
+            // 
+            this.e_tyrimai_data.CustomFormat = "yyyy-MM-dd";
+            this.e_tyrimai_data.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.e_tyrimai_data.Location = new System.Drawing.Point(28, 34);
+            this.e_tyrimai_data.Name = "e_tyrimai_data";
+            this.e_tyrimai_data.Size = new System.Drawing.Size(130, 26);
+            this.e_tyrimai_data.TabIndex = 4;
+            this.e_tyrimai_data.Value = new System.DateTime(2022, 8, 2, 11, 57, 46, 0);
+            // 
             // e_tyrimas_remove
             // 
-            this.e_tyrimas_remove.Location = new System.Drawing.Point(559, 42);
+            this.e_tyrimas_remove.Location = new System.Drawing.Point(620, 208);
             this.e_tyrimas_remove.Name = "e_tyrimas_remove";
-            this.e_tyrimas_remove.Size = new System.Drawing.Size(74, 28);
+            this.e_tyrimas_remove.Size = new System.Drawing.Size(51, 30);
             this.e_tyrimas_remove.TabIndex = 3;
-            this.e_tyrimas_remove.Text = "Atimti";
+            this.e_tyrimas_remove.Text = "Trinti";
             this.e_tyrimas_remove.UseVisualStyleBackColor = true;
             this.e_tyrimas_remove.Click += new System.EventHandler(this.e_tyrimas_remove_Click);
             // 
             // e_tyrimas_add
             // 
-            this.e_tyrimas_add.Location = new System.Drawing.Point(478, 42);
+            this.e_tyrimas_add.Location = new System.Drawing.Point(588, 32);
             this.e_tyrimas_add.Name = "e_tyrimas_add";
-            this.e_tyrimas_add.Size = new System.Drawing.Size(75, 28);
+            this.e_tyrimas_add.Size = new System.Drawing.Size(84, 28);
             this.e_tyrimas_add.TabIndex = 2;
             this.e_tyrimas_add.Text = "Pridėti";
             this.e_tyrimas_add.UseVisualStyleBackColor = true;
@@ -619,9 +654,9 @@
             this.e_tyrimai_select.Cursor = System.Windows.Forms.Cursors.Default;
             this.e_tyrimai_select.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.e_tyrimai_select.FormattingEnabled = true;
-            this.e_tyrimai_select.Location = new System.Drawing.Point(37, 42);
+            this.e_tyrimai_select.Location = new System.Drawing.Point(164, 33);
             this.e_tyrimai_select.Name = "e_tyrimai_select";
-            this.e_tyrimai_select.Size = new System.Drawing.Size(434, 28);
+            this.e_tyrimai_select.Size = new System.Drawing.Size(418, 28);
             this.e_tyrimai_select.TabIndex = 1;
             // 
             // e_tyrimai
@@ -630,12 +665,14 @@
             this.tyrimas,
             this.kodas,
             this.antraste,
-            this.tyr_kiekis});
+            this.data,
+            this.rezultatas});
+            this.e_tyrimai.FullRowSelect = true;
             this.e_tyrimai.HideSelection = false;
-            this.e_tyrimai.Location = new System.Drawing.Point(37, 84);
+            this.e_tyrimai.Location = new System.Drawing.Point(28, 75);
             this.e_tyrimai.Margin = new System.Windows.Forms.Padding(4);
             this.e_tyrimai.Name = "e_tyrimai";
-            this.e_tyrimai.Size = new System.Drawing.Size(596, 128);
+            this.e_tyrimai.Size = new System.Drawing.Size(643, 128);
             this.e_tyrimai.TabIndex = 0;
             this.e_tyrimai.UseCompatibleStateImageBehavior = false;
             this.e_tyrimai.View = System.Windows.Forms.View.Details;
@@ -643,21 +680,27 @@
             // tyrimas
             // 
             this.tyrimas.Text = "Tyrimas";
-            this.tyrimas.Width = 120;
+            this.tyrimas.Width = 100;
             // 
             // kodas
             // 
             this.kodas.Text = "Kodas";
-            this.kodas.Width = 130;
+            this.kodas.Width = 110;
             // 
             // antraste
             // 
             this.antraste.Text = "Antraste";
-            this.antraste.Width = 220;
+            this.antraste.Width = 200;
             // 
-            // tyr_kiekis
+            // data
             // 
-            this.tyr_kiekis.Text = "Kiekis";
+            this.data.Text = "Tyrimo data";
+            this.data.Width = 100;
+            // 
+            // rezultatas
+            // 
+            this.rezultatas.Text = "Tyrimo rezultatas";
+            this.rezultatas.Width = 200;
             // 
             // groupBox3
             // 
@@ -669,14 +712,14 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(673, 222);
+            this.groupBox3.Size = new System.Drawing.Size(708, 214);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Skirti vaistai";
             // 
             // e_remove_vaistai
             // 
-            this.e_remove_vaistai.Location = new System.Drawing.Point(360, 172);
+            this.e_remove_vaistai.Location = new System.Drawing.Point(416, 171);
             this.e_remove_vaistai.Name = "e_remove_vaistai";
             this.e_remove_vaistai.Size = new System.Drawing.Size(256, 30);
             this.e_remove_vaistai.TabIndex = 2;
@@ -686,7 +729,7 @@
             // 
             // e_add_vaistai
             // 
-            this.e_add_vaistai.Location = new System.Drawing.Point(200, 172);
+            this.e_add_vaistai.Location = new System.Drawing.Point(281, 171);
             this.e_add_vaistai.Name = "e_add_vaistai";
             this.e_add_vaistai.Size = new System.Drawing.Size(120, 30);
             this.e_add_vaistai.TabIndex = 1;
@@ -704,10 +747,10 @@
             this.serija});
             this.e_vaistai.FullRowSelect = true;
             this.e_vaistai.HideSelection = false;
-            this.e_vaistai.Location = new System.Drawing.Point(37, 36);
+            this.e_vaistai.Location = new System.Drawing.Point(28, 36);
             this.e_vaistai.Margin = new System.Windows.Forms.Padding(4);
             this.e_vaistai.Name = "e_vaistai";
-            this.e_vaistai.Size = new System.Drawing.Size(579, 128);
+            this.e_vaistai.Size = new System.Drawing.Size(643, 128);
             this.e_vaistai.TabIndex = 0;
             this.e_vaistai.UseCompatibleStateImageBehavior = false;
             this.e_vaistai.View = System.Windows.Forms.View.Details;
@@ -741,7 +784,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 813);
+            this.ClientSize = new System.Drawing.Size(1211, 827);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -760,6 +803,7 @@
             this.groupBox4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -822,12 +866,16 @@
         private System.Windows.Forms.ColumnHeader serija;
         private System.Windows.Forms.Label e_isvaizda;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ColumnHeader tyr_kiekis;
+        private System.Windows.Forms.ColumnHeader data;
         private System.Windows.Forms.Button zur_save;
         private System.Windows.Forms.ComboBox e_tyrimai_select;
         private System.Windows.Forms.Button e_tyrimas_remove;
         private System.Windows.Forms.Button e_tyrimas_add;
         private System.Windows.Forms.Button e_remove_vaistai;
         private System.Windows.Forms.Button e_add_vaistai;
+        private System.Windows.Forms.Button e_tyrimai_add_result_button;
+        private System.Windows.Forms.TextBox e_tyrimas_rezultatas;
+        private System.Windows.Forms.DateTimePicker e_tyrimai_data;
+        private System.Windows.Forms.ColumnHeader rezultatas;
     }
 }
