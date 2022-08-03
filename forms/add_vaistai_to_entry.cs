@@ -19,10 +19,10 @@ namespace forms
         public void refresh_list(string where = "")
         {
             vaistai_to_add.Items.Clear();
-            string sql = "select a.id, b.pavadinimas pav, b.matas, a.galiojimo_data, a.serija, a.turimas_kiekis from vaistai_siuntos a join vaistai b on b.id=a.vaistai_id where a.turimas_kiekis>0 ";
+            string sql = "select a.id, b.pavadinimas pav, b.matas, a.galiojimo_data,  a.turimas_kiekis, a.serija, a.dokumentas from vaistai_siuntos a join vaistai b on b.id=a.vaistai_id where a.turimas_kiekis>0 ";
             if (where != "")
             {
-                sql += "and " + search.search_box(where, new[] { "pav", "a.serija" });
+                sql += "and " + search.search_box(where, new[] { "pav", "a.serija","dokumentas" });
             }
             SQLiteConnection m_dbConnection = new SQLiteConnection("Data Source=duomenys.db");
             m_dbConnection.Open();
@@ -33,7 +33,7 @@ namespace forms
 
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
-                string[] database_fields = { "pav", "matas", "galiojimo_data", "serija", "turimas_kiekis" };
+                string[] database_fields = { "pav", "matas", "galiojimo_data", "turimas_kiekis", "serija","dokumentas"};
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     ListViewItem lvi = new ListViewItem();
@@ -42,7 +42,15 @@ namespace forms
                     {
                         if (i > 0)
                         {
-                            lvi.SubItems.Add(row[database_fields[i]].ToString());
+                            if (database_fields[i] == "galiojimo_data")
+                            {
+                                lvi.SubItems.Add(((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd"));
+                            }
+                            else
+                            {
+                                lvi.SubItems.Add(row[database_fields[i]].ToString());
+                            }
+                            
                         }
                         else
                         {
@@ -77,7 +85,7 @@ namespace forms
             if (vaistai_to_add.SelectedItems.Count > 0)
             {
                 double kiekis = double.Parse(sveikas_kiekis.Value.ToString() + "." + pirmas_kiekis.Value.ToString() + antras_kiekis.Value.ToString(), CultureInfo.InvariantCulture);
-                double esamas_k = double.Parse(vaistai_to_add.SelectedItems[0].SubItems[4].Text);
+                double esamas_k = double.Parse(vaistai_to_add.SelectedItems[0].SubItems[3].Text);
                 if (kiekis > esamas_k)
                 {
                     MessageBox.Show("Jūsų nurodytas išrašomas kiekis per didelis.");

@@ -46,6 +46,7 @@
             this.selected_vaistas = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sveikas_kiekis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pirmas_kiekis)).BeginInit();
@@ -98,11 +99,12 @@
             this.pavadinimas,
             this.matas,
             this.galiojaiki,
+            this.kiekis,
             this.serija,
-            this.kiekis});
+            this.columnHeader1});
             this.vaistai_to_add.FullRowSelect = true;
             this.vaistai_to_add.HideSelection = false;
-            this.vaistai_to_add.Location = new System.Drawing.Point(19, 131);
+            this.vaistai_to_add.Location = new System.Drawing.Point(19, 130);
             this.vaistai_to_add.Name = "vaistai_to_add";
             this.vaistai_to_add.Size = new System.Drawing.Size(787, 171);
             this.vaistai_to_add.TabIndex = 2;
@@ -128,12 +130,12 @@
             // serija
             // 
             this.serija.Text = "Serijos Nr";
-            this.serija.Width = 167;
+            this.serija.Width = 129;
             // 
             // kiekis
             // 
             this.kiekis.Text = "Likęs kiekis";
-            this.kiekis.Width = 131;
+            this.kiekis.Width = 114;
             // 
             // sveikas_kiekis
             // 
@@ -214,6 +216,11 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pasirinktas vaistas";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Dokumento nr";
+            this.columnHeader1.Width = 129;
+            // 
             // add_vaistai_to_entry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -261,5 +268,6 @@
         private System.Windows.Forms.Label selected_vaistas;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

@@ -689,7 +689,7 @@
             // 
             // antraste
             // 
-            this.antraste.Text = "Antraste";
+            this.antraste.Text = "Antraštė";
             this.antraste.Width = 200;
             // 
             // data
