@@ -54,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.export_button = new System.Windows.Forms.Button();
             this.siuntos_edit_button = new System.Windows.Forms.Button();
             this.siuntos_new_button = new System.Windows.Forms.Button();
             this.siuntos_list = new System.Windows.Forms.ListView();
@@ -383,6 +384,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.export_button);
             this.groupBox3.Controls.Add(this.siuntos_edit_button);
             this.groupBox3.Controls.Add(this.siuntos_new_button);
             this.groupBox3.Controls.Add(this.siuntos_list);
@@ -395,6 +397,16 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pagrindinis ";
+            // 
+            // export_button
+            // 
+            this.export_button.Location = new System.Drawing.Point(457, 374);
+            this.export_button.Name = "export_button";
+            this.export_button.Size = new System.Drawing.Size(175, 49);
+            this.export_button.TabIndex = 7;
+            this.export_button.Text = "Eksportuoti";
+            this.export_button.UseVisualStyleBackColor = true;
+            this.export_button.Click += new System.EventHandler(this.export_button_Click);
             // 
             // siuntos_edit_button
             // 
@@ -973,6 +985,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Zurnalas";
             this.Text = "Registracinis žurnalas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.isAllowedToClose);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1075,6 +1088,7 @@
         private System.Windows.Forms.Button o_tyrimai_new_button;
         private System.Windows.Forms.Button o_vaistai_edit_button;
         private System.Windows.Forms.Button o_vaistai_new_button;
+        private System.Windows.Forms.Button export_button;
     }
 }
 

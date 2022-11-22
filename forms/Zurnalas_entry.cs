@@ -136,8 +136,8 @@ namespace forms
 
         private void zurnalas_info_fill(DataRow row)
         {
-            e_reg_data.Value = DateTime.Parse(row["reg_data"].ToString());
-            e_simp_data.Value = DateTime.Parse(row["pastebejimo_data"].ToString());
+            if (row["reg_data"].ToString() != "") e_reg_data.Value = DateTime.Parse(row["reg_data"].ToString());
+            if (row["pastebejimo_data"].ToString() != "") e_simp_data.Value = DateTime.Parse(row["pastebejimo_data"].ToString());
             e_baigtis.Text = row["baigtis"].ToString();
             e_bukle.Text = row["bukle"].ToString();
             e_diagnoze.Text = row["diagnoze"].ToString();

@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using System.IO;
 
 namespace forms
 {
@@ -117,7 +118,7 @@ namespace forms
                             }
                             else if (database_fields[i] == "pastebejimo_data")
                             {
-                                lvi.SubItems.Add(((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd"));
+                                lvi.SubItems.Add(row[database_fields[i]].ToString() != "" ? ((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd") : "");
                             }
                             else
                             {
@@ -126,7 +127,7 @@ namespace forms
                         }
                         else
                         {
-                            lvi.Text = ((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd");
+                            lvi.Text = row[database_fields[i]].ToString() != "" ? ((DateTime)row[database_fields[i]]).ToString("yyyy-MM-dd") : "";
                         }
                     }
                     zurnalas_list.Items.Add(lvi);
@@ -266,6 +267,38 @@ namespace forms
             deriv.Show();
         }
 
+        private void export_button_Click(object sender, EventArgs e)
+        {
+            string to_excel = "";
+            string delim = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
+            
+            foreach (ColumnHeader h in siuntos_list.Columns)
+            {
+                to_excel += h.Text + delim;
+            }
+            to_excel = to_excel.Substring(0, to_excel.Length - delim.Length);
+            to_excel += "\n";
+            foreach (ListViewItem lvl in siuntos_list.Items)
+            {
+                foreach(ListViewItem.ListViewSubItem s in lvl.SubItems)
+                {
+                    to_excel += s.Text + delim;
+                }
+                to_excel = to_excel.Substring(0, to_excel.Length - delim.Length);
+                to_excel += "\n";
+            }
+            try
+            {
+                StreamWriter sr = new StreamWriter(Application.StartupPath+"\\" + DateTime.Now.ToString("yyyy-MM-dd HH.mm") + ".csv");
+                sr.WriteLine(to_excel);
+                sr.Close();
+            }
+            catch (Exception er)
+            {
+                Console.WriteLine("Exception: " + er.Message);
+            }
+        }
+
         // --------------------------------
 
         // kitos lenteles
@@ -399,6 +432,15 @@ namespace forms
                 case 2:
                     kiti_load_all();
                     break;
+            }
+        }
+
+        private void isAllowedToClose(object sender, FormClosingEventArgs e)
+        {
+            if (Application.OpenForms.Count > 1)
+            {
+                MessageBox.Show("Yra atidarytų įrašų langų!");
+                e.Cancel = true;
             }
         }
     }
