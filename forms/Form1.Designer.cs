@@ -113,6 +113,7 @@
             this.o_vaistai_list = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.zurnalas_eksport_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -198,6 +199,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.zurnalas_eksport_button);
             this.groupBox2.Controls.Add(this.Edit_button);
             this.groupBox2.Controls.Add(this.zurnalas_new_button);
             this.groupBox2.Controls.Add(this.zurnalas_list);
@@ -973,6 +975,16 @@
             this.columnHeader2.Text = "Matas";
             this.columnHeader2.Width = 120;
             // 
+            // zurnalas_eksport_button
+            // 
+            this.zurnalas_eksport_button.Location = new System.Drawing.Point(453, 374);
+            this.zurnalas_eksport_button.Name = "zurnalas_eksport_button";
+            this.zurnalas_eksport_button.Size = new System.Drawing.Size(159, 49);
+            this.zurnalas_eksport_button.TabIndex = 7;
+            this.zurnalas_eksport_button.Text = "Eksportuoti";
+            this.zurnalas_eksport_button.UseVisualStyleBackColor = true;
+            this.zurnalas_eksport_button.Click += new System.EventHandler(this.zurnalas_eksport_button_Click);
+            // 
             // Zurnalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1089,6 +1101,7 @@
         private System.Windows.Forms.Button o_vaistai_edit_button;
         private System.Windows.Forms.Button o_vaistai_new_button;
         private System.Windows.Forms.Button export_button;
+        private System.Windows.Forms.Button zurnalas_eksport_button;
     }
 }
 
