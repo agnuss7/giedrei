@@ -180,7 +180,8 @@ namespace forms
             }
             try
             {
-                StreamWriter sr = new StreamWriter(Application.StartupPath + "\\zurnalas" + DateTime.Now.ToString("yyyy-MM-dd HH.mm") + ".csv");
+                StreamWriter sr = new StreamWriter(Application.StartupPath + "\\zurnalas" + DateTime.Now.ToString("yyyy-MM-dd HH.mm") + ".csv",false,System.Text.Encoding.UTF8);
+                
                 sr.WriteLine(to_excel);
                 sr.Close();
             }
@@ -387,10 +388,10 @@ namespace forms
             {
                 to_excel += h.Text + delim;
             }
-            to_excel += "Registravimo data" + delim + "Vardas" + delim + "Pavarde"+delim+"Telefonas"+delim+"Israsytas kiekis"+"\n";
+            to_excel += "Registravimo data" + delim + "Vardas" + delim + "Pavardė"+delim+"Telefonas"+delim+"Išrašytas kiekis"+"\n";
             try
             {
-                StreamWriter sr = new StreamWriter(Application.StartupPath + "\\Vaistu_siuntos" + DateTime.Now.ToString("yyyy-MM-dd HH.mm") + ".csv");
+                StreamWriter sr = new StreamWriter(Application.StartupPath + "\\Vaistu_siuntos" + DateTime.Now.ToString("yyyy-MM-dd HH.mm") + ".csv", false, System.Text.Encoding.UTF8);
                 sr.WriteLine(to_excel+get_connected_zurnalas_entry(delim));
                 sr.Close();
             }
