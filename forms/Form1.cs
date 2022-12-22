@@ -173,7 +173,7 @@ namespace forms
             {
                 foreach (ListViewItem.ListViewSubItem s in lvl.SubItems)
                 {
-                    to_excel += s.Text + delim;
+                    to_excel += "=\"" + s.Text + "\"" + delim;
                 }
                 to_excel = to_excel.Substring(0, to_excel.Length - delim.Length);
                 to_excel += "\n";
